@@ -2,24 +2,24 @@
 .jumbotron.jumbotron-fluid.jumbotron-extend
   .container
     %h1 Welcome to DEPS.
-    %p 勉強した時間、これからのタスクを記録を残すことで
-    %p DEPSはあなたの行動をを明確に視覚化してくれます。
-    = link_to "Sign up now", "#", class: "btn btn-primary btn-lg"
+    %p DEPS helps you record your study time and tasks.
+    %p Let's click button below and create your account.
+    = link_to "Sign up now", new_user_path, class: "btn btn-info btn-lg"
 .container
   .container.discription-container
     .row
       .col-md-4
         .discription-img-container
           = image_tag "graph.png", class: "discription-img"
-        %h2 グラフ化
-        %p DEPS上にやり遂げた事、勉強した内容を記述する事で時間を可視化出来ます。
+        %h2 Graph
+        %p DEPS shows you study time in the graph.
       .col-md-4
         .discription-img-container
           = image_tag "task.png", class: "discription-img"
-        %h2 タスクマネジメント
-        %p 予定されるタスクをカレンダー上に書き込む事で、いつ、何をすれば良いのか整理出来ます。
+        %h2 Task managemant
+        %p You can put tasks on your calendar in DEPS.
       .col-md-4
         .discription-img-container
           = image_tag "chat.png", class: "discription-img"
-        %h2 コメント
-        %p 勉強した内容を投稿する事で、同じ目標のユーザー同士で交流し、切磋琢磨出来ます。
+        %h2 Comment
+        %p By posting status, you can interact with other users.

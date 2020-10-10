@@ -1,10 +1,23 @@
-%header
-  %nav.navbar.navbar-expand-sm.navbar-dark.fixed-top.navbar-extend
-    %a.navbar-brand{:herf => "#"}
-      .navbar-brand-extend
-        = link_to image_tag("logo.png", width: 70), root_path, class: "logo-img"
-    %button.navbar-toggler{"data-target" => "#menu", "data-toggle" => "collapse"}
-      %span.navbar-toggler-icon
-    #menu.collapse.navbar-collapse
-      %ul.navbar-nav.ml-auto
-        .btn.btn-primary.btn-sm= link_to "Login", "#", class: "nav-link"
+%header.navbar.navbar-fixed-top.navbar-default
+  .container
+    = link_to image_tag("logo.png", width: 70), root_path, class: "logo"
+    %nav.navbar.navbar-expand
+      %ul.nav.navbar-nav.navbar-right
+        %li.nav-item= link_to "Home", home_path, class: "nav-link"
+        %li.nav-item= link_to "About",  about_path, class: "nav-link"
+        -# - if logged_in?
+        -#   %li.dropdown
+        -#     %li.dropdown
+        -#       %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        -#         Account
+        -#         %b.caret
+        -#       %ul.dropdown-menu
+        -#         %li.nav-item= link_to "Profile", current_user, class: "nav-link"
+        -#         %li.nav-item= link_to "Settings", edit_user_path(current_user), class: "nav-link"
+        -#         %li.divider
+        -#         %li.nav-item
+        -#           = link_to "Log out", logout_path, method: :delete, class: "nav-link"
+        -# - else
+        -#   %li.nav-item= link_to "Log in", login_path, class: "nav-link"
+        %li.nav-item= link_to "Login", "#", class: "nav-link"
+

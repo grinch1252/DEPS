@@ -1,2 +1,16 @@
-%h1 Users#new
-%p Find me in app/views/users/new.html.haml
+-provide(:title, "Create Account")
+.signup-container
+  .row
+    .col.form-box
+      %h1.signup-title Create Account
+      = form_with(model: @user, url: "#", local: true) do |f|
+        =render "shared/error_messages"
+        .form-group
+          =f.text_field :name, class: "form-control", placeholder: "name"
+        .form-group
+          =f.text_field :email, class: "form-control", placeholder: "email"
+        .form-group
+          =f.text_field :password, class: "form-control", placeholder: "password"
+        .form-group
+          =f.text_field :password_confirmation, placeholder: "password_confirmation", class: "form-control"
+        =f.submit "Create Account", class:"btn btn-info submit-btn"

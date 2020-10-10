@@ -24,6 +24,7 @@ gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
 gem 'devise'
 gem 'omniauth-twitter'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'sqlite3'
