@@ -1,3 +1,25 @@
 - provide(:title, "Home")
-%h1 Welcome to DEPS!
-%p To login, please create new account or sign in with your account.
+.jumbotron.jumbotron-fluid.jumbotron-extend
+  .container
+    %h1 Welcome to DEPS.
+    %p 勉強した時間、これからのタスクを記録を残すことで
+    %p DEPSはあなたの行動をを明確に視覚化してくれます。
+    = link_to "Sign up now", "#", class: "btn btn-primary btn-lg"
+.container
+  .container.discription-container
+    .row
+      .col-md-4
+        .discription-img-container
+          = image_tag "graph.png", class: "discription-img"
+        %h2 グラフ化
+        %p DEPS上にやり遂げた事、勉強した内容を記述する事で時間を可視化出来ます。
+      .col-md-4
+        .discription-img-container
+          = image_tag "task.png", class: "discription-img"
+        %h2 タスクマネジメント
+        %p 予定されるタスクをカレンダー上に書き込む事で、いつ、何をすれば良いのか整理出来ます。
+      .col-md-4
+        .discription-img-container
+          = image_tag "chat.png", class: "discription-img"
+        %h2 コメント
+        %p 勉強した内容を投稿する事で、同じ目標のユーザー同士で交流し、切磋琢磨出来ます。

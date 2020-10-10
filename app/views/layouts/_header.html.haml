@@ -1,0 +1,10 @@
+%header
+  %nav.navbar.navbar-expand-sm.navbar-dark.fixed-top.navbar-extend
+    %a.navbar-brand{:herf => "#"}
+      .navbar-brand-extend
+        = link_to image_tag("logo.png", width: 70), root_path, class: "logo-img"
+    %button.navbar-toggler{"data-target" => "#menu", "data-toggle" => "collapse"}
+      %span.navbar-toggler-icon
+    #menu.collapse.navbar-collapse
+      %ul.navbar-nav.ml-auto
+        .btn.btn-primary.btn-sm= link_to "Login", "#", class: "nav-link"

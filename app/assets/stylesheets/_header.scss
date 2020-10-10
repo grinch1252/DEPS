@@ -1,0 +1,25 @@
+@import "bootstrap";
+
+$bgDefault      : #111111;
+$bgHighlight    : #333333;
+$colDefault     : #3eaeca;
+$colHighlight   : #81c2d2;
+$dropDown       : true;
+
+header {
+  background-color: $bgDefault;
+}
+.navbar-extend {
+  margin-bottom: 0;
+  background-color: $bgDefault;
+  opacity: 0.9;
+  ul li a button {
+    padding: 0.375rem 1.5rem;
+  }
+}
+
+.logo-img:hover {
+  opacity: 0.6;
+}
+
+
