@@ -1,0 +1,15 @@
+-provide(:title, "Login")
+.input-container
+  .row
+    .col.form-box
+      %h1.input-title Create Account
+      = form_with(scope: :session, url: login_path, local: true) do |f|
+        .form-group
+          =f.text_field :email, class: "form-control", placeholder: "email"
+        .form-group
+          =f.text_field :password, class: "form-control", placeholder: "password"
+        =f.submit "Login", class:"btn btn-info submit-btn"
+
+      .account-container
+        %p.do-not-have-account Haven't you created own account?
+        = link_to "Create Account now", signup_path, class: "btn btn-info"

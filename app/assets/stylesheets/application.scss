@@ -64,7 +64,7 @@ body {
 
 // signup-form
 
-.signup-container {
+.input-container {
   width: 450px;
   padding: 40px;
   position: absolute;
@@ -75,7 +75,7 @@ body {
   text-align: center;
 }
 
-.signup-title {
+.input-title {
   text-align: center;
   font-weight: normal;
   font-size: 1.5rem;
@@ -117,4 +117,10 @@ body {
 
 .alert-form-extend {
   margin: 1.5rem 0 1rem;
+}
+
+// login-form
+
+.account-container {
+  padding: 40px;
 }

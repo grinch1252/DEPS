@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Users", type: :request do
 
-  describe "get new_user_path" do
+  describe "get signup_path" do
     it "submit invalid values" do
       get signup_path
       expect(response).to have_http_status(:success)
