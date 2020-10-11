@@ -13,5 +13,5 @@
     = render "layouts/header"
     - flash.each do |message_type, message|
       = tag.div message, class: "alert alert-#{message_type}"
-      = yield
+    = yield
     = render "layouts/footer"
