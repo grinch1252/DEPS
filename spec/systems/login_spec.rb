@@ -48,8 +48,9 @@ RSpec.describe "Login", type: :system do
       fill_in "password", with: user.password
       click_button "Login"
       expect(current_path).to eq user_path(1)
-      # click_link "Logout"
-      # expect(current_path).to eq root_path
+      find(".dropdown-toggle").click
+      click_link "Logout"
+      expect(current_path).to eq root_path
     end
   end
 end

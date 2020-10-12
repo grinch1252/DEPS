@@ -87,4 +87,10 @@ RSpec.describe "User model", type: :model do
       expect(user).to be_invalid
     end
   end
+
+  describe "User model methods" do
+    it "authenticated? method should return false if nil digest" do
+      expect(user.authenticated?('')).to be_falsey
+    end
+  end
 end
