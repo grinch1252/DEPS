@@ -13,6 +13,10 @@ body {
   font-family: sans-serif;
 }
 
+section {
+  overflow: auto;
+}
+
 .jumbotron-extend {
   background-color: $bgDefault;
   background-repeat: no-repeat;

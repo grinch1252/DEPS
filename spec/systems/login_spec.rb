@@ -29,15 +29,27 @@ RSpec.describe "Login", type: :system do
     end
   end
 
-  # describe "login with valid values" do
-  #   it "success login" do
-  #     visit login_path
-  #     expect(page).to have_selector ".input-container"
-  #     fill_in "email", with: user.email
-  #     fill_in "password", with: user.password
-  #     click_button "Login"
-  #     expect(current_path).to eq user_path(1)
-  #     expect(response).to have_http_status 302
-  #   end
-  # end
+  describe "login with valid values" do
+    it "success login" do
+      visit login_path
+      expect(page).to have_selector ".input-container"
+      fill_in "email", with: user.email
+      fill_in "password", with: user.password
+      click_button "Login"
+      expect(current_path).to eq user_path(1)
+    end
+  end
+
+  describe "logout and redirect to root" do
+    it "success logout" do
+      visit login_path
+      expect(page).to have_selector ".input-container"
+      fill_in "email", with: user.email
+      fill_in "password", with: user.password
+      click_button "Login"
+      expect(current_path).to eq user_path(1)
+      # click_link "Logout"
+      # expect(current_path).to eq root_path
+    end
+  end
 end
