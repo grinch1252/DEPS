@@ -20,10 +20,12 @@ RSpec.describe "User model", type: :model do
       user.name = nil
       expect(user).to be_invalid
     end
+
     it "should accept valid name" do
       user.name = "foobar"
       expect(user).to be_valid
     end
+
     it "should reject too long name" do
       user.name = "a" * 31
       expect(user).to be_invalid
@@ -35,10 +37,12 @@ RSpec.describe "User model", type: :model do
       user.email = nil
       expect(user).to be_invalid
     end
+
     it "should reject too long email" do
       user.email = "a" * 256 + "@example.com"
       expect(user).to be_invalid
     end
+
     it "should accept valid email format" do
       user.email = "foobar@valid.com"
       expect(user).to be_valid
@@ -47,6 +51,7 @@ RSpec.describe "User model", type: :model do
       user.email = "user@example.com"
       expect(user).to be_valid
     end
+
     it "should reject invalid email format" do
       user.email = "foobar@invalid"
       expect(user).to be_invalid
@@ -55,12 +60,14 @@ RSpec.describe "User model", type: :model do
       user.email = "foobar@example.com.."
       expect(user).to be_invalid
     end
+
     it "should reject existing email" do
       second_user = user.dup
       second_user.email = user.email.upcase
       user.save!
       expect(second_user).to be_invalid
     end
+
     it "should be saved as downcase" do
       user.email = "USER@TEST.COM"
       user.save!
@@ -73,14 +80,17 @@ RSpec.describe "User model", type: :model do
       user.password = nil
       expect(user).to be_invalid
     end
+
     it "should reject too short password" do
       user.password = "test"
       expect(user).to be_invalid
     end
+
     it "should reject valid password" do
       user.password = "testuser"
       expect(user).to be_valid
     end
+
     it "should match password and confimation" do
       user.password = "testuser"
       user.password_confirmation = "foobar"

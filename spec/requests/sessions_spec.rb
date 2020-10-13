@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Sessions", type: :request do
-  
+  include SessionsHelper
   let!(:user) { create(:user) }
 
   describe "get login_path" do
@@ -17,6 +17,7 @@ RSpec.describe "Sessions", type: :request do
       expect(flash[:danger]).to be_truthy
       expect(is_logged_in?).to be_falsey
     end
+
     it "submit valid values" do
       get login_path
       expect(response).to have_http_status(:success)
@@ -29,6 +30,7 @@ RSpec.describe "Sessions", type: :request do
       expect(flash[:danger]).to be_falsey
       expect(is_logged_in?).to be_truthy
     end
+
     it "login and logout" do
       get login_path
       post login_path, params: {
@@ -40,6 +42,38 @@ RSpec.describe "Sessions", type: :request do
       expect(is_logged_in?).to be_truthy
       delete logout_path
       expect(is_logged_in?).to be_falsey
+    end
+
+    it "can't logout twice" do
+      log_in_as(user)
+      expect(is_logged_in?).to be_truthy
+      expect(response).to redirect_to user_path(user)
+      delete logout_path
+      expect(is_logged_in?).to be_falsey
+      expect(response).to redirect_to root_path
+      delete logout_path
+      expect(response).to redirect_to root_path
+    end
+
+    it "checked remember_me-box" do
+      log_in_as(1)
+      expect(is_logged_in?).to be_truthy
+      expect(cookies[:remember_token]).not_to be nil
+    end
+
+    it "didn't check remember_me-box" do
+      log_in_as(0)
+      expect(is_logged_in?).to be_truthy
+      expect(cookies[:remember_token]).to be nil
+    end
+
+    it "does't have remember_token after logout" do
+      log_in_as(1)
+      expect(is_logged_in?).to be_truthy
+      expect(cookies[:remember_token]).not_to be_empty
+      delete logout_path
+      expect(is_logged_in?).to be_falsey
+      expect(cookies[:remember_token]).to be_empty
     end
   end
 end

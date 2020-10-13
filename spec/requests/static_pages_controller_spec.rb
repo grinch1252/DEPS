@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "StaticPagesController", type: :request do
+
   context "GET #home" do
     include ApplicationHelper
     before { get root_path }
@@ -11,6 +12,7 @@ RSpec.describe "StaticPagesController", type: :request do
       expect(response.body).to include full_title("Home")
     end
   end
+
   context "GET #about" do
     include ApplicationHelper
     before { get about_path }

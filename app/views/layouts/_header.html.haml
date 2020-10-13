@@ -13,8 +13,8 @@
                 %b.caret
               %ul.dropdown-menu
                 %li.nav-item= link_to "Profile", user_path(current_user), class: "nav-link"
-                %li.nav-item= link_to "Settings", "#", class: "nav-link"
-                -# %li.divider
+                %li.nav-item= link_to "Edit Account", edit_user_path(current_user), class: "nav-link"
+                %li.divider
                 %li.nav-item
                   = link_to "Logout", logout_path, method: :delete, class: "nav-link"
         - else

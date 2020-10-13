@@ -8,6 +8,7 @@ RSpec.describe ApplicationHelper, type: :helper do
         expect(helper.full_title("")).to eq("DEPS")
       end
     end
+
     context "page_title is not empty" do
       it "returns title and application name where contains symbol" do
         expect(helper.full_title("test")).to eq("test | DEPS")

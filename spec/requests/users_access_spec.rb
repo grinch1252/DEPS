@@ -2,6 +2,8 @@ require "rails_helper"
 
 RSpec.describe "Users", type: :request do
 
+  let!(:user) { create(:user) }
+
   describe "get signup_path" do
     it "submit invalid values" do
       get signup_path
@@ -17,6 +19,7 @@ RSpec.describe "Users", type: :request do
         }
       }.not_to change(User, :count)
     end
+
     it "submit valid values" do
       get signup_path
       expect(response).to have_http_status(:success)
@@ -30,6 +33,13 @@ RSpec.describe "Users", type: :request do
           }
         }
       }.to change(User, :count).by(1)
+    end
+  end
+
+  describe "restrict access before login" do
+    it "restrict access to user page" do
+      get user_path(user)
+      expect(response).to redirect_to login_path
     end
   end
 end
