@@ -1,0 +1,14 @@
+-provide(:title, "Reset password")
+.input-container
+  .row
+    .col.form-box
+      %h1.input-title Reset password
+      = form_with(model: @user, url: password_reset_path(params[:id]), local: true) do |f|
+        = render "shared/error_messages"
+        = hidden_field_tag :email, @user.email
+
+        .form-group
+          =f.text_field :password, class: "form-control", placeholder: "password"
+        .form-group
+          =f.text_field :password_confirmation, class: "form-control", placeholder: "password confimation"
+        = f.submit "Submit", class: "btn btn-info submit-btn"
