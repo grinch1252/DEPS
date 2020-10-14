@@ -100,7 +100,7 @@ RSpec.describe "User model", type: :model do
 
   describe "User model methods" do
     it "authenticated? method should return false if nil digest" do
-      expect(user.authenticated?('')).to be_falsey
+      expect(user.authenticated?(:remember, "")).to be_falsey
     end
   end
 end

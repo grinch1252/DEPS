@@ -12,7 +12,7 @@ RSpec.describe "users", type: :system do
         fill_in "password", with: "password"
         fill_in "password_confirmation", with: "password"
         click_button "Create Account"}.to change(User, :count).by(1)
-        expect(current_path).to eq user_path(1)
+        expect(current_path).to eq root_path
       end
     end
 

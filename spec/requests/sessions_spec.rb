@@ -56,19 +56,19 @@ RSpec.describe "Sessions", type: :request do
     end
 
     it "checked remember_me-box" do
-      log_in_as(1)
+      log_in_as(user, remember_me = 1)
       expect(is_logged_in?).to be_truthy
       expect(cookies[:remember_token]).not_to be nil
     end
 
     it "didn't check remember_me-box" do
-      log_in_as(0)
+      log_in_as(user, remember_me = 0)
       expect(is_logged_in?).to be_truthy
       expect(cookies[:remember_token]).to be nil
     end
 
     it "does't have remember_token after logout" do
-      log_in_as(1)
+      log_in_as(user, remember_me = 1)
       expect(is_logged_in?).to be_truthy
       expect(cookies[:remember_token]).not_to be_empty
       delete logout_path

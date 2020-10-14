@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe "Users", type: :request do
 
   let!(:user) { create(:user) }
+  let!(:no_activated_user) { create(:no_activated_user) }
 
   describe "get signup_path" do
     it "submit invalid values" do
@@ -40,6 +41,16 @@ RSpec.describe "Users", type: :request do
     it "restrict access to user page" do
       get user_path(user)
       expect(response).to redirect_to login_path
+    end
+  end
+
+  describe "restrict access before activation" do
+    it "restrict access if no-activated user" do
+      get login_path
+      log_in_as(no_activated_user)
+      expect(flash[:danger]).to be_truthy
+      expect(is_logged_in?).to be_falsey
+      expect(response).to redirect_to root_path
     end
   end
 end
