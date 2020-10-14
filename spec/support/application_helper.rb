@@ -8,7 +8,7 @@ module ApplicationHelpers
     update_attribute(:remember_digest, nil)
   end
 
-  def log_in_as(remember_me = 0)
+  def log_in_as(user, remember_me = 0)
     get login_path
     post login_path, params: { session: { email: user.email,
                                           password: user.password,
