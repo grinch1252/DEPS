@@ -1,10 +1,10 @@
 - provide(:title, @user.name)
-.container
+.container.show-container
   .row
     .col.bg-primary
       form
     .col.bg-secondary
       figure
   .row
-    .col.bg-warning
-      log
+    .col
+      = render "layouts/log"

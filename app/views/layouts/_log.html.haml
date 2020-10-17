@@ -1,0 +1,25 @@
+%h1.log-title.col-2 Logs
+- if @user.microposts.any?
+  .container
+    %ol.microposts
+      - @microposts.each do |micropost|
+        %li{:id => "micropost-#{micropost.id}"}
+          %span.row.log-list
+            %span.col-3.log-timestamp.d-none.d-md-inline-block.log-timestamp-block
+              %span.user-name
+                = link_to picture_for(current_user, size: 50), current_user
+                =@user.name
+            %span.col-md-9.col-log-memos
+              .log-time-and-edit
+                .row
+                  %span.log-title.col-3
+                  %span.log-time.col-3
+                    = micropost.time
+                    min
+                  %span.col-5.log-timestamp.log-timestamp-inline
+                    = time_ago_in_words(micropost.created_at)
+                    ago.
+              %span.log-memo= micropost.content
+  = paginate @microposts
+- else
+  %span Your logs was not found.
