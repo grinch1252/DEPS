@@ -1,0 +1,10 @@
+= form_for(@micropost) do |f|
+  = render "shared/error_messages", object: f.object
+  .field.title-form
+    = f.text_field :title, class: "form-control", placeholder: "Title"
+  .field.time-form
+    = f.number_field :time, class: "form-control", placeholder: "Time"
+  .field.content-form
+    = f.text_area :content, class: "form-control", placeholder: "Compose new post..."
+
+  = f.submit "Post", class: "btn btn-block btn-info"

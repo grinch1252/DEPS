@@ -1,0 +1,3 @@
+= link_to picture_for(current_user, size: 50), current_user
+%h1.user-left-name= current_user.name
+%span= pluralize(current_user.microposts.count, "post")

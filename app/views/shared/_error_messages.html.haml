@@ -2,7 +2,7 @@
   #error_explanation
     .alert.alert-danger.alert-form-extend{:role => "alert"}
       = @user.errors.count
-      個のエラーがあります
+      errors.
     %ul
       - @user.errors.full_messages.each do |msg|
         %li= msg

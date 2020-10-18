@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   mount_uploader :picture, PictureUploader
+  has_one_attached :picture
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   before_save :downcase_email
   before_create :create_activation_digest

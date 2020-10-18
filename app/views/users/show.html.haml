@@ -3,14 +3,14 @@
   .row
     %aside.col-md-3
       %section.user_info
-        %h1
-          .user-image= picture_for @user
-          .user-name= @user.name
+        = render "shared/user_info"
+      %section.micropost_form
+        = render "shared/micropost_form"
     .col-md-9
       - if @user.microposts.any?
         .page-control= paginate @microposts
         %h4
-          Logs (#{@user.microposts.count})
+          Log
         %ol.microposts
           = render @microposts
 

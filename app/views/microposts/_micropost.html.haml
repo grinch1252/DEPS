@@ -1,11 +1,11 @@
 %li.user-picture{:id => "micropost-#{micropost.id}"}
   = link_to picture_for(micropost.user, size: 50), micropost.user
-  %span.user.user-name= link_to micropost.user.name, micropost.user
-  %span.title= micropost.title
-  %span.time= micropost.time
+  %span.user= link_to micropost.user.name, micropost.user, class: "user-name"
+  %span.title= "| #{micropost.title} |"
+  %span.time= "#{micropost.time} min"
   %span.timestamp
     #{micropost.created_at.to_s(:datetime_jp)}
   %span.content= micropost.content
--# - if current_user?(micropost.user)
--#   .delete-button
--#     = link_to "delete", micropost, method: :delete, data: {confirm: "Do you really want to delete this post?"}, class: ".btn btn-sm btn-danger"
+  - if current_user?(micropost.user)
+    .delete-button
+      = link_to "delete", micropost, method: :delete, data: {confirm: "Do you really want to delete this post?"}, class: ".btn btn-sm btn-warning"
