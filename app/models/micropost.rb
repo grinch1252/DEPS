@@ -9,7 +9,7 @@ class Micropost < ApplicationRecord
   private
 
     def has_element
-      time.presence or title.presence
+      time.presence or title.presence or content.presence
     end
 
 end

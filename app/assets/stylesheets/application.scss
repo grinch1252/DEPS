@@ -1,7 +1,7 @@
 @import "bootstrap";
 @import "header";
 
-$bgDefault      : #000000;
+$bgDefault      : #111111;
 $bgHighlight    : #333333;
 $colDefault     : #3eaeca;
 $colHighlight   : #81c2d2;
@@ -10,7 +10,6 @@ $dropDown       : true;
 body {
   background-color: $bgDefault;
   color: #fff;
-  font-family: sans-serif;
 }
 
 section {
@@ -139,6 +138,10 @@ section {
 
 //microposts
 
+.show-container {
+  padding: 60px;
+}
+
 ol {
   list-style-type: none;
 }
@@ -175,9 +178,13 @@ ol {
   }
 }
 
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  font-weight: normal;
+.pagination>li>a {
+  background-color: #333;
+  color: $colHighlight;
+  border: none;
+}
+
+.page-control {
+  float: right;
+  height: 40px;
 }

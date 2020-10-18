@@ -25,6 +25,8 @@ gem 'mini_magick',             '4.7.0'
 gem 'devise'
 gem 'omniauth-twitter'
 gem 'rails-i18n'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 group :development, :test do
   gem 'sqlite3'

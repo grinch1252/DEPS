@@ -13,13 +13,13 @@ class UsersController < ApplicationController
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
-      render "new"
+      render new_user_path
     end
   end
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page], per_page: 8)
+    @microposts = @user.microposts.page(params[:page]).per(7)
   end
 
   def edit
