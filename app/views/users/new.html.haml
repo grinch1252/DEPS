@@ -1,20 +1,7 @@
 -provide(:title, "Create Account")
+-provide(:button_text, "Create Account")
 .input-container
   .row
     .col.form-box
       %h1.input-title Create Account
-      = form_with(model: @user, url: signup_path, local: true) do |f|
-        =render "shared/error_messages"
-        .form-group
-          =f.text_field :name, class: "form-control", placeholder: "name"
-        .form-group
-          =f.text_field :email, class: "form-control", placeholder: "email"
-        .form-group
-          =f.text_field :password, class: "form-control", placeholder: "password"
-        .form-group
-          =f.text_field :password_confirmation, placeholder: "password_confirmation", class: "form-control"
-
-        = f.label "choose your profile image"
-        = f.file_field :image
-
-        =f.submit "Create Account", class:"btn btn-info submit-btn"
+      = render "input-form"

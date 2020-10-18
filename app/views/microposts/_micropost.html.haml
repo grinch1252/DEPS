@@ -1,0 +1,6 @@
+%li.user-picture{:id => "micropost-#{micropost.id}"}
+  = link_to picture_for(micropost.user, size: 50), micropost.user
+  %span.user.user-name= link_to micropost.user.name, micropost.user
+  %span.timestamp
+    #{micropost.created_at.to_s(:datetime_jp)}
+  %span.content= micropost.content
