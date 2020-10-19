@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:destroy]
 
   def create
     @user = current_user
@@ -10,7 +10,7 @@ class MicropostsController < ApplicationController
     if @micropost.save
       redirect_to current_user
     else
-      render @user
+      redirect_to @user
     end
   end
 
