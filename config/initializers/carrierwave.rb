@@ -6,7 +6,7 @@ if Rails.env.production?
   CarrierWave.configure do |config|
     config.fog_provider = 'fog/aws'
     config.fog_directory     =  ENV['S3-BUCKET']
-    config.asset_host = "https://s3.amazonaws.com/deps-s3-001"
+    config.asset_host = "https://s3.ap-northeast-1.amazonaws.com/deps-s3-001"
     config.fog_public = false
     config.fog_credentials = {
       # Amazon S3用の設定
