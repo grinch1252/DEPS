@@ -27,6 +27,7 @@ gem 'omniauth-twitter'
 gem 'rails-i18n'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem 'chartkick'
 
 group :development, :test do
   gem 'sqlite3'
