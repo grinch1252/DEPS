@@ -2,8 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = "enigmatic-hollows-19862.herokuapp.com"
-  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_url_options = { host: "enigmatic-hollows-19862.herokuapp.com" }
   ActionMailer::Base.smtp_settings = {
     :address        => "smtp.sendgrid.net",
     :port           => "587",
