@@ -2,7 +2,12 @@
   = link_to picture_for(micropost.user, size: 50), micropost.user
   %span.user= link_to micropost.user.name, micropost.user, class: "user-name"
   %span.title= "| #{micropost.title} |"
-  %span.time= "#{micropost.time} min"
+  - if micropost.time == nil
+    0 min
+  - elsif micropost.time >= 60
+    %span.time= "#{(micropost.time / 60).floor} h, #{micropost.time % 60} min"
+  -else
+    %span.time= "#{micropost.time} min"
   %span.timestamp
     #{micropost.created_at.to_s(:datetime_jp)}
   %span.content= micropost.content
