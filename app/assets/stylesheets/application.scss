@@ -19,7 +19,6 @@ section {
 
 .jumbotron-extend {
   background-color: $bgDefault;
-  background-repeat: no-repeat;
   .container {
     margin-top: 6rem;
     h1,
@@ -167,4 +166,19 @@ aside {
       margin-top: 0px;
     }
   }
+}
+
+//about page
+
+.about-container {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.explain-container {
+  margin-top: 30px;
+}
+
+.text-container {
+  margin-top: 20px;
 }

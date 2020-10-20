@@ -28,6 +28,8 @@ gem 'rails-i18n'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'chartkick'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 group :development, :test do
   gem 'sqlite3'

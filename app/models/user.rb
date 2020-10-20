@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
+  has_many :tasks, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   mount_uploader :picture, PictureUploader
   has_one_attached :picture

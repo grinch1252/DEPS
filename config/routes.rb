@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tasks/index'
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
   resources :microposts, only:[:create, :destroy, :edit, :update]
   resources :account_activations, only:[:edit]
   resources :password_resets, only:[:new, :create, :edit, :update]
+  resources :tasks
 end

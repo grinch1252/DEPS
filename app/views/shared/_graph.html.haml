@@ -3,7 +3,7 @@
   .figure-sum-and-button.row
     %span.figure-sum-text.col-sm
       %div.total-time
-        total：
+        Total：
         %em.figure-sum= sum_times
         minute
         (
@@ -14,7 +14,7 @@
         = @user.microposts_period(@period).keys.first
         \- #{@user.microposts_period(@period).keys.last}
       .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
-        = link_to "week", user_path(@user, period: "week"), class: "dropdown-item"
-        = link_to "month", user_path(@user, period: "month"), class: "dropdown-item"
-        = link_to "year", user_path(@user, period: "year"), class: "dropdown-item"
+        = link_to "Week", user_path(@user, period: "week"), class: "dropdown-item"
+        = link_to "Month", user_path(@user, period: "month"), class: "dropdown-item"
+        = link_to "Year", user_path(@user, period: "year"), class: "dropdown-item"
   = line_chart @chart, discrete: true, colors: ["#3eaeca"]
