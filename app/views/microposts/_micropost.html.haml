@@ -1,7 +1,9 @@
 %li.user-picture{:id => "micropost-#{micropost.id}"}
   = link_to picture_for(micropost.user, size: 50), micropost.user
   %span.user= link_to micropost.user.name, micropost.user, class: "user-name"
-  %span.title= "| #{micropost.title} |"
+  |
+  %span.title=micropost.title
+  |
   - if micropost.time == nil
     0 m
   - elsif micropost.time >= 60
@@ -13,4 +15,4 @@
   %span.content= micropost.content
   - if current_user?(micropost.user)
     .delete-button
-      = link_to "delete", micropost, method: :delete, data: {confirm: "Do you really want to delete this post?"}, class: ".btn btn-sm btn-warning"
+      = link_to "delete", micropost, method: :delete, data: {confirm: "Do you really want to delete this post?"}, class: ".btn btn-sm btn-danger"

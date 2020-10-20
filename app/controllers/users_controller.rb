@@ -21,6 +21,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @micropost = current_user.microposts.build
     @microposts = @user.microposts.page(params[:page]).per(7)
+    @period = params[:period]
+    @chart = @user.microposts_period(@period)
   end
 
   def edit
