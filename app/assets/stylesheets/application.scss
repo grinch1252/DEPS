@@ -2,6 +2,7 @@
 @import "header";
 @import "microposts";
 
+
 $bgDefault      : #111111;
 $bgHighlight    : #333333;
 $colDefault     : #3eaeca;
@@ -181,4 +182,18 @@ aside {
 
 .text-container {
   margin-top: 20px;
+}
+
+// calendar
+
+.calendar-title {
+  color: $colHighlight;
+}
+
+.modal-content {
+  background-color: $bgDefault;
+}
+
+.modal-title {
+  text-align: right
 }

@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 2020_10_20_134344) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.boolean "disp_flg"
+    t.datetime "start"
+    t.datetime "end"
+    t.string "allDay"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
   create_table "microposts", force: :cascade do |t|
     t.integer "time"
     t.string "title"
@@ -42,16 +55,6 @@ ActiveRecord::Schema.define(version: 2020_10_20_134344) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
-  end
-
-  create_table "tasks", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
-    t.boolean "disp_flg"
-    t.datetime "start"
-    t.datetime "end"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,5 +73,6 @@ ActiveRecord::Schema.define(version: 2020_10_20_134344) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "users"
   add_foreign_key "microposts", "users"
 end

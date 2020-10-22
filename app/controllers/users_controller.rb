@@ -23,6 +23,8 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.page(params[:page]).per(7)
     @period = params[:period]
     @chart = @user.microposts_period(@period)
+    @events = Event.where(user_id: @user.id)
+    @event = Event.new
   end
 
   def edit
