@@ -197,3 +197,17 @@ aside {
 .modal-title {
   text-align: right
 }
+
+.events {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #777;
+  }
+}
+
+.btn-event {
+  float: right;
+  padding: 5px;
+}

@@ -1,1 +1,29 @@
-#calendar
+.row
+  #calendar.col-md-6
+
+  .col-md-6
+    %button.btn.btn-info.btn-event{:onclick => "$('#inputEventForm').modal('show')", :type => "button"}
+      New event
+    - if @user.events.any?
+      .page-control= paginate @events
+      %h4
+        Events
+      %ol.events
+        = render @events
+
+#inputEventForm.modal.fade{:tabindex => "-1"}
+  .modal-dialog.modal-nm
+    .modal-content
+      .modal-header
+        %h4.modal-title New Event
+      .modal-body
+        = form_with model: @event, url: events_path do |e|
+          .field.title-form
+            = e.text_field :title, class: "form-control", placeholder: "Title"
+          .field.time-form
+            = e.datetime_field  :start, class: "form-control", placeholder: "XXXX-XX-XX"
+            = e.datetime_field  :end, class: "form-control", placeholder: "XXXX-XX-XX"
+          .field.body-form
+            = e.text_area :body, class: "form-control", placeholder: "details"
+
+          = e.submit "Create event", class: "btn btn-block btn-info"

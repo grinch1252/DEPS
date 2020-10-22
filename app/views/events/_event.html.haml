@@ -1,0 +1,13 @@
+%li
+  |
+  %span.title=event.title
+  |
+  %span.event-start-time
+    = event.start.strftime("%Y-%m-%d %H:%M:%S")
+  %span.event-end-time
+    = event.end.strftime("%Y-%m-%d %H:%M:%S")
+  %span.content
+    = event.body
+  - if current_user?(event.user)
+    .delete-button
+      = link_to "delete", event, method: :delete, data: {confirm: "Do you really want to delete this event?"}, class: ".btn btn-sm btn-danger"

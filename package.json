@@ -12,7 +12,7 @@
     "bootstrap": "^4.5.2",
     "chart.js": "^2.9.4",
     "chartkick": "^3.2.1",
-    "fullcalendar": "3.4.0",
+    "fullcalendar": "^5.3.2",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
     "popper.js": "^1.16.1",

@@ -18,8 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new Calendar(calendarEl, {
-    plugins: [ dayGridPlugin, interactionPlugin ]
+    plugins: [ dayGridPlugin, interactionPlugin ],
+    selectable: true,
+    events: '/events.json',
+    headerToolbar: {
+      left: 'prev,next',
+      center: 'title',
+      right: 'today'
+    }
   });
 
   calendar.render();
-});
+  });
+
