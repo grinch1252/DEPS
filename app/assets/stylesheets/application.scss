@@ -2,6 +2,9 @@
 @import "header";
 @import "microposts";
 
+// @import '@fullcalendar/core/main.css';
+// @import '@fullcalendar/daygrid/main.css';
+
 
 $bgDefault      : #111111;
 $bgHighlight    : #333333;
@@ -187,7 +190,7 @@ aside {
 // calendar
 
 #calendar {
-  height: 500px;
+  height: 500px !important;
 }
 
 .calendar-title {

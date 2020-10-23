@@ -4,14 +4,14 @@ class EventsController < ApplicationController
 
   def index
     @user = current_user
-    @events = @user.events.page(params[:page]).per(8)
+    @events = @user.events.page(params[:page]).per(5)
     @event = Event.new
   end
 
   def create
     @user = current_user
     @event = current_user.events.build(event_params) if logged_in?
-    @events = @user.events.page(params[:page]).per(8)
+    @events = @user.events.page(params[:page]).per(5)
 
     if @event.save
       redirect_to events_path
