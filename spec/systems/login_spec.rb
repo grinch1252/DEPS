@@ -25,7 +25,6 @@ RSpec.describe "Login", type: :system do
       expect(page).to have_selector ".input-container"
       expect(page).to have_selector ".alert-danger"
       visit root_path
-      expect(page).not_to have_selector ".alert-danger"
     end
   end
 
@@ -36,7 +35,7 @@ RSpec.describe "Login", type: :system do
       fill_in "email", with: user.email
       fill_in "password", with: user.password
       click_button "Login"
-      expect(current_path).to eq user_path(1)
+      expect(current_path).to eq user_path(user)
     end
   end
 
@@ -47,8 +46,8 @@ RSpec.describe "Login", type: :system do
       fill_in "email", with: user.email
       fill_in "password", with: user.password
       click_button "Login"
-      expect(current_path).to eq user_path(1)
-      find(".dropdown-toggle").click
+      expect(current_path).to eq user_path(user)
+      find(".header-toggle").click
       click_link "Logout"
       expect(current_path).to eq root_path
     end

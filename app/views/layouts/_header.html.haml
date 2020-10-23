@@ -5,15 +5,16 @@
       %ul.nav.navbar-nav.navbar-right
         %li.nav-item= link_to "Home", home_path, class: "nav-link"
         %li.nav-item= link_to "About",  about_path, class: "nav-link"
-        %li.nav-item= link_to "Events", events_path, class: "nav-link"
+        - if logged_in?
+          %li.nav-item= link_to "Events", events_path, class: "nav-link"
+          %li.nav-item= link_to "My page", user_path(current_user), class: "nav-link"
         - if logged_in?
           %li.dropdown
             %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %a.dropdown-toggle.header-toggle{"data-toggle" => "dropdown", :href => "#"}
                 Account
                 %b.caret
               %ul.dropdown-menu
-                %li.nav-item= link_to "My page", user_path(current_user), class: "nav-link"
                 %li.nav-item= link_to "Edit Account", edit_user_path(current_user), class: "nav-link"
                 %li.divider
                 %li.nav-item

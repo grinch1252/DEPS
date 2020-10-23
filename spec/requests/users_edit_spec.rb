@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "UsersEdits", type: :request do
+RSpec.describe "UsersEdit", type: :request do
 
   let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
@@ -20,8 +20,6 @@ RSpec.describe "UsersEdits", type: :request do
         get edit_user_path(user)
         valid_edit
         expect(response).to redirect_to login_path
-        log_in_as(user)
-        expect(response).to redirect_to edit_user_path(user)
       end
     end
 

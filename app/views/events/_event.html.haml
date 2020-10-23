@@ -4,8 +4,10 @@
   |
   %span.event-start-time
     = event.start.strftime("%Y-%m-%d %H:%M:%S")
+  〜
   %span.event-end-time
     = event.end.strftime("%Y-%m-%d %H:%M:%S")
+  %br
   %span.content
     = event.body
   - if current_user?(event.user)

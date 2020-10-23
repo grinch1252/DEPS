@@ -23,8 +23,6 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.page(params[:page]).per(7)
     @period = params[:period]
     @chart = @user.microposts_period(@period)
-    @events = Event.where(user_id: @user.id)
-    @event = Event.new
   end
 
   def edit
@@ -50,7 +48,6 @@ class UsersController < ApplicationController
 
     def logged_in_user
       unless logged_in?
-        store_location
         flash[:warning] = "Please login."
         redirect_to login_path
       end

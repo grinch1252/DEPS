@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:destroy]
 
   def index
@@ -42,7 +42,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     flash[:success] = "Deleted event."
-    redirect_to current_user
+    redirect_to events_path
   end
 
   private
