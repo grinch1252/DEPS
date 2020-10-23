@@ -111,8 +111,8 @@ GEM
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
-    faker (1.7.3)
-      i18n (~> 0.5)
+    faker (1.9.3)
+      i18n (>= 0.7)
     ffi (1.13.1)
     fog-aws (3.6.7)
       fog-core (~> 2.1)
@@ -152,7 +152,7 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
-    i18n (0.9.5)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
     jbuilder (2.10.1)
@@ -269,7 +269,7 @@ GEM
       railties (>= 5.0)
     rspec-core (3.9.3)
       rspec-support (~> 3.9.3)
-    rspec-expectations (3.9.2)
+    rspec-expectations (3.9.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-mocks (3.9.1)
@@ -367,7 +367,7 @@ DEPENDENCIES
   coffee-rails (= 4.2.2)
   devise
   factory_bot_rails
-  faker (= 1.7.3)
+  faker (= 1.9.3)
   fog-aws
   fullcalendar-rails
   haml-rails (~> 2.0)

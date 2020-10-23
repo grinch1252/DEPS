@@ -42,6 +42,16 @@ RSpec.describe "Users", type: :request do
       get user_path(user)
       expect(response).to redirect_to login_path
     end
+
+    it "restrict access to following" do
+      get following_user_path(user)
+      expect(response).to redirect_to login_path
+    end
+
+    it "restrict access to followers" do
+      get followers_user_path(user)
+      expect(response).to redirect_to login_path
+    end
   end
 
   describe "restrict access before activation" do
@@ -53,4 +63,5 @@ RSpec.describe "Users", type: :request do
       expect(response).to redirect_to root_path
     end
   end
+
 end

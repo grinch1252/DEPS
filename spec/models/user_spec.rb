@@ -2,12 +2,14 @@ require "rails_helper"
 
 RSpec.describe "User model", type: :model do
 
-  let(:user) { User.new(
-    name: "TestUser",
-    email: "Test@example.com",
-    password: "testuser",
-    password_confirmation: "testuser"
-  )}
+  # let(:user) { User.new(
+  #   name: "TestUser",
+  #   email: "Test@example.com",
+  #   password: "testuser",
+  #   password_confirmation: "testuser"
+  # )}
+  let!(:user) { create(:user) }
+  let!(:other_user) { create(:other_user) }
 
   describe "validate user" do
     it "should be valid user" do
@@ -86,8 +88,8 @@ RSpec.describe "User model", type: :model do
       expect(user).to be_invalid
     end
 
-    it "should reject valid password" do
-      user.password = "testuser"
+    it "should accept valid password" do
+      user.password = "password"
       expect(user).to be_valid
     end
 
@@ -103,4 +105,16 @@ RSpec.describe "User model", type: :model do
       expect(user.authenticated?(:remember, "")).to be_falsey
     end
   end
+
+  describe "User relationships" do
+    it "follow and unfollow other user" do
+      expect(user.following?(other_user)).to be_falsey
+      user.follow(other_user)
+      expect(user.following?(other_user)).to be_truthy
+      expect(other_user.followers.include?(user)).to be_truthy
+      user.unfollow(other_user)
+      expect(user.following?(other_user)).to be_falsey
+    end
+  end
+
 end

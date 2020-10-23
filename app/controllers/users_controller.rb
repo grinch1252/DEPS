@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy, :following, :followers]
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -38,6 +38,20 @@ class UsersController < ApplicationController
       flash[:danger] = "Invalid information."
       redirect_to edit_user_path(@user)
     end
+  end
+
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.page(params[:page]).per(7)
+    render "show_follow"
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.page(params[:page]).per(7)
+    render "show_follow"
   end
 
   private

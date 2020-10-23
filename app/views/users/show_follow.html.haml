@@ -1,0 +1,19 @@
+- provide(:title, @title)
+.container.show-container
+  .row
+    %aside.col-md-3
+      %section.user_info
+        = picture_for @user
+        %h1= @user.name
+        %span
+          %b logs:
+          = @user.microposts.count
+      %section.stats
+        = render "shared/stats"
+    .col-md-9
+      %h3= @title
+      .page-control= paginate @users
+      - if @users.any?
+        %ol.followUsers.follow
+          = render @users
+

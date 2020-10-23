@@ -1,3 +1,6 @@
-= link_to picture_for(current_user, size: 50), current_user
+- if current_user == @user
+  .user_image= link_to picture_for(current_user, size: 50), current_user
+- else
+  .user_image= link_to picture_for(@user, size: 50), @user
 %h1.user-left-name= current_user.name
-%span= pluralize(current_user.microposts.count, "post")
+%span= pluralize(current_user.microposts.count, "log")
