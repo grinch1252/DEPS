@@ -8,6 +8,7 @@ require("moment")
 require("channels")
 require("chartkick")
 require("chart.js")
+require("fullcalendar")
 
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';

@@ -2,6 +2,9 @@
 @import "header";
 @import "microposts";
 
+@import '@fullcalendar/core/main.css';
+@import '@fullcalendar/daygrid/main.css';
+
 $bgDefault      : #111111;
 $bgHighlight    : #333333;
 $colDefault     : #3eaeca;
