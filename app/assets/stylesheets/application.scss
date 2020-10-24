@@ -267,3 +267,31 @@ aside {
 .events-container {
   margin-top: 60px;
 }
+
+// search result
+
+.result-container {
+  margin-top: 60px;
+}
+
+.result {
+  font-size: 30px;
+}
+
+.searchUsers {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0px;
+    border-top: 1px solid #777;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .user-picture {
+    overflow: auto;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}

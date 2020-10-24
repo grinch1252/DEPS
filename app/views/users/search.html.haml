@@ -1,0 +1,10 @@
+- provide(:title, "Search result")
+.row
+  .result-container.col-md-6.offset-md-3
+    - if @users.present?
+      .page-control= paginate @users
+      %h1.result Search result
+      %ol.searchUsers
+        = render @users
+    -else
+      %h1 Could not find required user in this site.
