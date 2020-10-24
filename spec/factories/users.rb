@@ -16,6 +16,14 @@ FactoryBot.define do
     activated { true }
   end
 
+  factory :third, class: User do
+    name { "ThirdUser" }
+    email { "thirduser@example.com" }
+    password { "password3" }
+    password_confirmation { "password3" }
+    activated { true }
+  end
+
   factory :no_activated_user, class: User do
     name { "NoActivatedUser" }
     email { "NoActuser@example.com" }

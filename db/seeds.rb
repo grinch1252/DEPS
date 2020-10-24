@@ -5,7 +5,7 @@ User.create!(name:  "Example User",
   activated: true,
   picture: open("#{Rails.root}/db/fixtures/default.jpg"))
 
-5.times do |n|
+50.times do |n|
 name  = Faker::Name.name
 email = "example-#{n+1}@deps.org"
 password = "password"
@@ -17,7 +17,7 @@ User.create!( name:  name,
               picture: open("#{Rails.root}/db/fixtures/default.jpg"))
 end
 
-users = User.order(:created_at).take(3)
+users = User.order(:created_at).take(10)
 20.times do
   title = Faker::Lorem.words(1)
   # time = Faker::Number.number(3)

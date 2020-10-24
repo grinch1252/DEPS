@@ -1,25 +1,26 @@
 - provide(:title, "Home")
-.jumbotron.jumbotron-fluid.jumbotron-extend
-  .container
-    %h1 Welcome to DEPS.
-    %p DEPS helps you record your study time and tasks.
-    %p Let's click button below and create your account.
-    = link_to "Sign up now", new_user_path, class: "btn btn-info btn-lg"
--# .container
--#   .container.discription-container
--#     .row
--#       .col-md-4
--#         .discription-img-container
--#           = image_tag "graph.png", class: "discription-img"
--#         %h2 Graph
--#         %p DEPS shows you study time in the graph.
--#       .col-md-4
--#         .discription-img-container
--#           = image_tag "task.png", class: "discription-img"
--#         %h2 Task managemant
--#         %p You can put tasks on your calendar in DEPS.
--#       .col-md-4
--#         .discription-img-container
--#           = image_tag "chat.png", class: "discription-img"
--#         %h2 Comment
--#         %p By posting status, you can interact with other users.
+- if logged_in?
+  .container.show-container
+    .row
+      %aside.col-md-3
+        .fixed-sidebar
+          %section.user_info
+            = render "shared/user_info"
+          %section.stats
+            = render "shared/stats"
+          %section.micropost_form
+            = render "shared/micropost_form"
+      .col-md-9
+        - if @feed_items.any?
+          .page-control= paginate @feed_items
+          %h4 TimeLine
+          %ol.microposts
+            = render @feed_items
+
+- else
+  .jumbotron.jumbotron-fluid.jumbotron-extend
+    .container
+      %h1 Welcome to DEPS.
+      %p DEPS helps you record your study time and tasks.
+      %p Let's click button below and create your account.
+      = link_to "Sign up now", new_user_path, class: "btn btn-info btn-lg"

@@ -2,14 +2,9 @@ require "rails_helper"
 
 RSpec.describe "User model", type: :model do
 
-  # let(:user) { User.new(
-  #   name: "TestUser",
-  #   email: "Test@example.com",
-  #   password: "testuser",
-  #   password_confirmation: "testuser"
-  # )}
   let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
+  let!(:third) { create(:third) }
 
   describe "validate user" do
     it "should be valid user" do
@@ -116,5 +111,26 @@ RSpec.describe "User model", type: :model do
       expect(user.following?(other_user)).to be_falsey
     end
   end
+
+  describe "feed should show correct posts" do
+
+    it "show following user's posts" do
+      third.follow(user)
+      third.microposts.each do |post_following|
+        expect(user.feed.include?(post_following)).to be_truthy
+      end
+    end
+    it "show own posts" do
+      user.microposts.each do |post_self|
+        expect(user.feed.include?(post_self)).to be_truthy
+      end
+    end
+    it "doesn't show unfollowing user's posts" do
+      other_user.microposts.each do |post_unfollowed|
+        expect(user.feed.include?(post_unfollowed)).to be_falsey
+      end
+    end
+  end
+
 
 end

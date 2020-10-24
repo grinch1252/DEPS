@@ -11,9 +11,9 @@
       %section.stats
         = render "shared/stats"
     .col-md-9
-      %h3= @title
-      .page-control= paginate @users
       - if @users.any?
-        %ol.followUsers.follow
+        .page-control= paginate @users
+        %h4= @title
+        %ol.followUsers
           = render @users
 

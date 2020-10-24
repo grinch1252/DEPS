@@ -30,6 +30,7 @@ gem 'kaminari-bootstrap'
 gem 'chartkick'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'react-rails'
 
 group :development, :test do
   gem 'sqlite3'

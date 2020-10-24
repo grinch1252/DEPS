@@ -2,10 +2,6 @@
 @import "header";
 @import "microposts";
 
-// @import '@fullcalendar/core/main.css';
-// @import '@fullcalendar/daygrid/main.css';
-
-
 $bgDefault      : #111111;
 $bgHighlight    : #333333;
 $colDefault     : #3eaeca;
@@ -157,22 +153,7 @@ ol {
     margin-top: 5em;
     padding-top: 0;
   }
-  .content {
-    display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
-  }
-  .timestamp {
-    color: #888;
-    display: block;
-    margin-left: 60px;
-    float: right;
-  }
-  .picture {
-    float: left;
+  .user-picture {
     overflow: auto;
     margin-right: 10px;
     margin-top: 5px;
