@@ -20,28 +20,8 @@ class EventsController < ApplicationController
     end
   end
 
-  def edit
-    @event = current_user.events.find_by(id: params[:id]) || nil
-    if @event.nil?
-      flash[:warning] = "No permission to edit."
-      redirect_to root_url
-    end
-  end
-
-  def update
-    @event = current_user.events.find_by(id: params[:id])
-    @event.update_attributes(micropost_params)
-    if @event.save
-      flash[:success] = "Save changes."
-      redirect_to current_user
-    else
-      render edit_micropost_path
-    end
-  end
-
   def destroy
     @event.destroy
-    flash[:success] = "Deleted event."
     redirect_to events_path
   end
 
