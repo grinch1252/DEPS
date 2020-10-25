@@ -8,6 +8,10 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def create
     @user = current_user
     @event = current_user.events.build(event_params) if logged_in?

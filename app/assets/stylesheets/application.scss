@@ -299,3 +299,26 @@ aside {
   }
 }
 
+// event#show
+.event-show-container {
+  padding-top: 20px;
+  margin-top: 60px;
+  border: 1px solid #666;
+  width: 870px;
+}
+
+.event-time {
+  margin-top: 20px;
+  font-weight: normal;
+}
+
+.event-detail {
+  margin-top: 20px;
+  font-weight: normal;
+}
+
+.event-delete-button {
+  float: right;
+  position: relative;
+}
+

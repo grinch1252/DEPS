@@ -6,9 +6,9 @@
         Total：
         %em.figure-sum= sum_times
         minute
-        -# (
-        -# %em.figure-sum= to_hour
-        -# hour)
+        (
+        %em.figure-sum= to_hour
+        hour)
     %span.dropdown.col-sm.period-button
       %button#dropdownMenuButton.btn.btn-info.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
         = @user.microposts_period(@period).keys.first

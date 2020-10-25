@@ -1,0 +1,10 @@
+- provide(:title, @event.title)
+.container.event-show-container
+  .row
+    .col-md-8.offset-md-2
+      %h1.event-title= @event.title
+      %h4.event-time= "#{@event.start.strftime("%Y-%m-%d %H:%M:%S")} 〜 #{@event.end.strftime("%Y-%m-%d %H:%M:%S")}"
+      %h4.event-detail= @event.body
+      - if current_user?(@event.user)
+        .event-delete-button
+          = link_to "delete", @event, method: :delete, data: {confirm: "Do you really want to delete this event?"}, class: ".btn btn-sm btn-danger"
