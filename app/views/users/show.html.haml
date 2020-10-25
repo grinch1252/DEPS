@@ -7,7 +7,7 @@
       %section.stats
         = render "shared/stats"
       %section.follow_form
-      = render "follow_form" if logged_in?
+        = render "follow_form" if logged_in?
       %section.micropost_form
         = render "shared/micropost_form" if current_user?(@user)
     .col-md-9
@@ -15,7 +15,7 @@
         .page-control= paginate @microposts
         %h4
           Log
-        %ol.microposts
+        %ol.microposts#area_microposts
           = render @microposts
   .row
     .graph-container.col-md-12

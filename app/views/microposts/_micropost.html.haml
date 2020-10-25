@@ -15,4 +15,4 @@
   %span.content= micropost.content
   - if current_user?(micropost.user)
     .delete-button
-      = link_to "delete", micropost, method: :delete, data: {confirm: "Do you really want to delete this post?"}, class: ".btn btn-sm btn-danger"
+      = link_to "delete", micropost, method: :delete, remote: true, data: {confirm: "Do you really want to delete this post?"}, class: ".btn btn-sm btn-danger"

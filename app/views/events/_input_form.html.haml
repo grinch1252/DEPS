@@ -4,22 +4,20 @@
       .modal-header
         %h4.modal-title Resister task
       .modal-body
-        = form_with model: @task, url: tasks_path do |f|
+        = form_with model: @task, remote: true, url: tasks_path do |f|
           .col
             %p
-              %span Title
-              %span= f.text_field :title, class: "form-control", placeholder: "Title"
+            %span Title
+            %span= f.text_field :title, class: "form-control", placeholder: "Title"
             %span Start
-            %span
-              = f.datetime_field  :start, placeholder: "XXXX-XX-XX", class:"field"
+            %span= f.datetime_field  :start, placeholder: "XXXX-XX-XX", class:"field"
               \~
             %br/
             %span End
             %span= f.datetime_field :end, placeholder: "XXXX-XX-XX", class:"field"
             %br/
-            %span
-              Details
-              \#{f.text_field :content, class: "form-control", placeholder: "Details"}
+            %span Details
+            %span= f.text_field :content, class: "form-control", placeholder: "Details"
           .modal-footer
             = f.submit "Resister task", class: "btn btn-primary"
             = f.hidden_field :user_id, :value => current_user.id

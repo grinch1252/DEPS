@@ -3,4 +3,4 @@
 - else
   .user_image= link_to picture_for(@user, size: 50), @user
 %h1.user-left-name= @user.name
-%span= pluralize(@user.microposts.count, "log")
+%span#log-count= pluralize(@user.microposts.count, "log")

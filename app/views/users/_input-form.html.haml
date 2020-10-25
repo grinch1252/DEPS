@@ -1,9 +1,9 @@
-= form_for(@user) do |f|
+= form_with model: @user do |f|
   =render "shared/error_messages", object: @user
   .form-group
-    =f.text_field :name, class: "form-control", placeholder: "name"
+    =f.text_field :name, class: "form-control", placeholder: "name",
   .form-group
-    =f.text_field :email, class: "form-control", placeholder: "email"
+    =f.text_field :email, class: "form-control", placeholder: "email",
   .form-group
     =f.text_field :password, class: "form-control", placeholder: "password"
   .form-group

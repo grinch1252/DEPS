@@ -14,7 +14,7 @@
         - if @feed_items.any?
           .page-control= paginate @feed_items
           %h4 TimeLine
-          %ol.microposts
+          %ol.microposts#area_microposts
             = render @feed_items
 
 - else

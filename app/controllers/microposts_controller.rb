@@ -8,7 +8,10 @@ class MicropostsController < ApplicationController
     @microposts = @user.microposts.page(params[:page]).per(8)
 
     if @micropost.save
-      redirect_to current_user
+      respond_to do |format|
+        format.html { redirect_to @user }
+        format.js
+      end
     else
       redirect_to @user
     end
@@ -34,9 +37,12 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @micropost.destroy
-    flash[:success] = "Deleted post."
-    redirect_to current_user
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+    end
   end
 
   private
