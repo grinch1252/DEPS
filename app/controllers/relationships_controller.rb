@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
     @relationship = current_user.follow(@user)
     respond_to do |format|
       format.html { redirect_to @user }
-      format.json { render json: @relationship}
+      format.js
     end
   end
 
@@ -15,7 +15,7 @@ class RelationshipsController < ApplicationController
     current_user.unfollow(@user)
     respond_to do |format|
       format.html { redirect_to @user }
-      format.json { render json: nil}
+      format.js
     end
   end
 

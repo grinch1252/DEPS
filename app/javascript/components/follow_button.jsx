@@ -7,10 +7,13 @@ export default class FollowButton extends Component {
 
     this.state = {
       loading: false,
-      relationship: props.relationship,
-      following: props.following,
-      followers: props.followers
+      relationship: props.relationship
     }
+
+    this.handleClickFollowButton = this.handleClickFollowButton.bind(this);
+    this.follow = this.follow.bind(this);
+    this.unfollow = this.unfollow.bind(this);
+
   }
 
   follow = () => {
@@ -80,10 +83,8 @@ export default class FollowButton extends Component {
 
     return (
       <div id="root">
-        <div>{ this.state.following }</div>
-        <div>{ this.state.followers }</div>
         <div>
-          <button className={ className } onClick={ this.handleClickFollowButton } disabled={ this.state.loading }>
+          <button className={ className } onClick={ this.handleClickFollowButton }>
             { this.state.relationship !== null ? 'Unfollow' : 'Follow' }
           </button>
         </div>
@@ -92,11 +93,3 @@ export default class FollowButton extends Component {
   }
 }
 
-FollowButton.defaultProps = {
-  relationship: null
-}
-
-FollowButton.propTypes = {
-  relationship: PropTypes.object,
-  user: PropTypes.object.isRequired
-}
