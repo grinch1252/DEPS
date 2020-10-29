@@ -1,3 +1,3 @@
 %li.user-picture{:id => "user-#{user.id}"}
-  = link_to picture_for(user, size: 50), user
+  = link_to picture_for_micropost(user, size: 50), user
   %span.user= link_to user.name, user, class: "user-name"

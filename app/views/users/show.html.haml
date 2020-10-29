@@ -2,12 +2,13 @@
 .container.show-container
   .row
     %aside.col-md-3
-      %section.user_info
-        = render "shared/user_info"
-      %section.stats
-        = render "shared/stats"
-      %section.follow_form
-        = render "follow_form" if logged_in?
+      .information_area
+        %section.user_info
+          = render "shared/user_info"
+        %section.stats
+          = render "shared/stats"
+        %section.follow_form
+          = render "follow_form" if logged_in?
       %section.micropost_form
         = render "shared/micropost_form" if current_user?(@user)
     .col-md-9
