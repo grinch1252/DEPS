@@ -62,7 +62,6 @@ RSpec.describe "Events", type: :request do
         delete event_path(event)
       end.to change(Event, :count).by(-1)
       expect(response).to redirect_to events_path
-      expect(flash[:success]).to be_truthy
     end
   end
 

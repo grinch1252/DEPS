@@ -17,7 +17,8 @@ class UsersController < ApplicationController
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
-      render new_user_path
+      flash[:danger] = "Invalid information."
+      redirect_to new_user_path
     end
   end
 
@@ -64,6 +65,14 @@ class UsersController < ApplicationController
     else
       @users = User.none
     end
+  end
+
+  def graph
+    @user = current_user
+    @micropost = current_user.microposts.build
+    @microposts = @user.microposts
+    @period = params[:period]
+    @chart = @user.microposts_period(@period)
   end
 
   private

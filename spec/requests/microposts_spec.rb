@@ -62,7 +62,6 @@ RSpec.describe "Microposts", type: :request do
         delete micropost_path(micropost)
       end.to change(Micropost, :count).by(-1)
       expect(response).to redirect_to user_path(user)
-      expect(flash[:success]).to be_truthy
     end
   end
 end

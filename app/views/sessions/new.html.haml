@@ -2,7 +2,7 @@
 .input-container
   .row
     .col.form-box
-      %h1.input-title Create Account
+      %h1.input-title Log in
       = form_with(scope: :session, url: login_path, local: true) do |f|
         .form-group
           =f.text_field :email, class: "form-control", placeholder: "email"
