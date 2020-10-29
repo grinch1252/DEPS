@@ -9,10 +9,10 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag "https://www.gstatic.com/charts/loader.js"
     %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.css", :rel => "stylesheet"}
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}
   %body
     .container
     = render "layouts/header"
     - flash.each do |message_type, message|
       = tag.div message, class: "alert alert-#{message_type}"
     = yield
-    = render "layouts/footer"

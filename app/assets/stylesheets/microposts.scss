@@ -91,3 +91,82 @@ $dropDown       : true;
   padding-bottom: 20px;
 }
 
+.show-container {
+  padding: 30px;
+}
+
+ol {
+  list-style-type: none;
+}
+
+.microposts{
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #777;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: #888;
+    display: block;
+    margin-left: 60px;
+    float: right;
+  }
+  .picture {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+.pagination>li>a {
+  background-color: #333;
+  color: $colHighlight;
+  border: none;
+}
+
+.page-control {
+  float: right;
+  height: 40px;
+}
+
+.user-name {
+  color: #888;
+}
+.title {
+  font-weight: bold;
+  color: $colHighlight;
+}
+
+.delete-button {
+  text-align: right;
+  padding: 0px;
+}
+
+.graph-title {
+  font-weight: normal;
+  color: $colHighlight;
+}
+
+.period-button {
+  text-align: right;
+}
+
+.fa-trash {
+  float: right;
+  color: crimson;
+  position: relative;
+  bottom: 14px;
+}

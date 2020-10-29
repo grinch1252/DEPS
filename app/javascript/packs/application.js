@@ -1,9 +1,9 @@
 // This file is automatically compiled by Webpack, along with any other files
+require("jquery")
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("turbolinks").start()
 require("bootstrap")
-require("jquery")
 require("moment")
 require("channels")
 require("chartkick")
@@ -31,8 +31,4 @@ document.addEventListener('turbolinks:load', function() {
   calendar.render();
   });
 
-// Support component names relative to this directory:
-// var componentRequireContext = require.context("components", true);
-// var ReactRailsUJS = require("react_ujs");
-// ReactRailsUJS.useContext(componentRequireContext);
 

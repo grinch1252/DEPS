@@ -1,9 +1,8 @@
 @import "bootstrap";
 @import "header";
 @import "microposts";
-
-// @import '@fullcalendar/core/main.css';
 @import '@fullcalendar/daygrid/main.css';
+@import 'font-awesome';
 
 $bgDefault      : #111111;
 $bgHighlight    : #333333;
@@ -38,81 +37,6 @@ section {
   }
 }
 
-//microposts
-
-.show-container {
-  padding: 30px;
-}
-
-ol {
-  list-style-type: none;
-}
-
-.microposts{
-  list-style: none;
-  padding: 0;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #777;
-  }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-  .content {
-    display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
-  }
-  .timestamp {
-    color: #888;
-    display: block;
-    margin-left: 60px;
-    float: right;
-  }
-  .picture {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-}
-
-.pagination>li>a {
-  background-color: #333;
-  color: $colHighlight;
-  border: none;
-}
-
-.page-control {
-  float: right;
-  height: 40px;
-}
-
-.user-name {
-  color: #888;
-}
-.title {
-  font-weight: bold;
-  color: $colHighlight;
-}
-
-.delete-button {
-  text-align: right;
-  padding: 0px;
-}
-
-.graph-title {
-  font-weight: normal;
-  color: $colHighlight;
-}
-
-.period-button {
-  text-align: right;
-}
-
 //follow-users
 
 .followUsers {
@@ -132,63 +56,6 @@ ol {
     margin-top: 5px;
   }
 }
-
-// left aside
-
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-
-.stats {
-  overflow: auto;
-  margin-top: 0;
-  padding: 0;
-  a {
-    float: left;
-    padding: 0 10px;
-    border-left: 1px solid #666;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: blue;
-    }
-  }
-  strong {
-    display: block;
-  }
-}
-
-.user_image {
-  float: left;
-  margin-right: 10px;
-}
-
 
 //about page
 
@@ -300,4 +167,66 @@ aside {
 
 .modal {
   display: none;
+}
+
+// event-form
+
+.event-btn {
+  margin-top: 20px;
+}
+
+// user
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid #666;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_image {
+  float: left;
+  margin-right: 10px;
 }

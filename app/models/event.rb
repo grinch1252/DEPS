@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   private
 
     def has_element
-      start.presence or title.presence or body.presence
+      start.presence and title.presence
     end
 
 end

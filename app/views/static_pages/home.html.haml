@@ -8,8 +8,6 @@
             = render "shared/user_info"
           %section.stats
             = render "shared/stats"
-          %section.micropost_form
-            = render "shared/micropost_form"
       .col-md-9
         - if @feed_items.any?
           .page-control= paginate @feed_items

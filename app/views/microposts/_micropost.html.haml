@@ -14,5 +14,5 @@
     #{micropost.created_at.to_s(:datetime_jp)}
   %span.content= micropost.content
   - if current_user?(micropost.user)
-    .delete-button
-      = link_to "delete", micropost, method: :delete, remote: true, data: {confirm: "Do you really want to delete this post?"}, class: ".btn btn-sm btn-danger"
+    = link_to micropost, method: :delete, remote: true, data: {confirm: "Do you really want to delete this post?"} do
+      %span.fa.fa-trash

@@ -29,6 +29,7 @@ header {
     > li {
       > a {
         color: $colDefault;
+        padding-right: 0;
         &:hover,  &:focus {
           color: $colHighlight; }}
       @if $dropDown {
@@ -90,3 +91,10 @@ li.dropdown {
   margin-right: 20px;
 }
 
+.fa-xs {
+  color: $colDefault;
+  position: relative;
+  top: 12px;
+  left: 4px;;
+  margin-left: 5px;
+}

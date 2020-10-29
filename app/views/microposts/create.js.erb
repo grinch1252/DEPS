@@ -3,4 +3,3 @@ $("#time-form").val('');
 $("#content-form").val('');
 $("#area_microposts").html("<%= escape_javascript(render(@microposts)) %>");
 $("#log-count").html('<%= pluralize(@user.microposts.count, "log") %>');
-

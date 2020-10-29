@@ -5,7 +5,7 @@ class MicropostsController < ApplicationController
   def create
     @user = current_user
     @micropost = current_user.microposts.build(micropost_params) if logged_in?
-    @microposts = @user.microposts.page(params[:page]).per(8)
+    @microposts = @user.microposts.page(params[:page]).per(7)
 
     if @micropost.save
       respond_to do |format|
