@@ -175,6 +175,20 @@ ol {
   bottom: 14px;
 }
 
+.like {
+  text-align: right;
+  position: relative;
+  top: 4px;
+}
+
+.likecount {
+  float: right;
+  margin-left: 10px;
+  position: relative;
+  top: 8px;
+  color: #888;
+}
+
 .micropost-picture {
   height: 50px;
   width: 50px;
