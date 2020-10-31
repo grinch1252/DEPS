@@ -2,24 +2,30 @@ require "rails_helper"
 
 RSpec.describe Relationship, type: :model do
 
-  let!(:user) { create(:user)}
-  let!(:other_user) { create(:other_user) }
-  let!(:relationship) { Relationship.new(follower_id: user.id,
+  let(:user) { create(:user)}
+  let(:other_user) { create(:other_user) }
+  let(:relationship) { Relationship.new(follower_id: user.id,
                                         followed_id: other_user.id) }
 
-  describe "Relationships validation" do
-    it "should be valid" do
+  context "submit valid values" do
+    it "be valid" do
       expect(relationship).to be_valid
     end
+  end
 
-    it "should be exist follower_id" do
-      relationship.follower_id = nil
-      expect(relationship).to be_invalid
+  describe "Relationships validation" do
+    context "follower_id is nil" do
+      it "be invalid" do
+        relationship.follower_id = nil
+        expect(relationship).to be_invalid
+      end
     end
 
-    it "should be exist followed_id" do
-      relationship.followed_id = nil
-      expect(relationship).to be_invalid
+    context "followed_id is nil" do
+      it "be invalid" do
+        relationship.followed_id = nil
+        expect(relationship).to be_invalid
+      end
     end
   end
 end

@@ -10,6 +10,7 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :likes, dependent: :destroy
+  has_many :subjects, dependent: :destroy
 
   attr_accessor :remember_token, :activation_token, :reset_token
   mount_uploader :picture, PictureUploader

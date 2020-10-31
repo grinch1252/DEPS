@@ -31,6 +31,5 @@ FactoryBot.define do
       user_id { 1 }
       created_at { Time.zone.now }
     end
-    # association :user, factory: :user
   end
 end

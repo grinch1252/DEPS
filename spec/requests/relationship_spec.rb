@@ -30,24 +30,10 @@ RSpec.describe Relationship, type: :request do
       log_in_as(user)
     end
 
-    it "follow with standard way" do
-      expect do
-        post relationships_path, params: { followed_id: other_user.id }
-      end.to change(user.following, :count).by(1)
-    end
-
     it "follow with Ajax" do
       expect do
         post relationships_path, xhr: true, params: { followed_id: other_user.id }
       end.to change(user.following, :count).by(1)
-    end
-
-    it "unfollow with standard way" do
-      user.follow(other_user)
-      relationship = user.active_relationships.find_by(followed_id: other_user.id)
-      expect do
-        delete relationship_path(relationship)
-      end.to change(user.following, :count).by(-1)
     end
 
     it "unfollow with Ajax" do

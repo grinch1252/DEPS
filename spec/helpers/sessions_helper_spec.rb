@@ -5,16 +5,20 @@ RSpec.describe "SessionsHelper", type: :helper do
   let!(:user) { create(:user) }
 
   describe "current_user" do
-    it "return corrent user when session is nil" do
-      remember(user)
-      expect(current_user).to eq user
-      expect(is_logged_in?).to be_truthy
+    context "session is nil" do
+      it "return corrent user" do
+        remember(user)
+        expect(current_user).to eq user
+        expect(is_logged_in?).to be_truthy
+      end
     end
 
-    it "return nil if remember digest is wrong" do
-      remember(user)
-      user.update_attribute(:remember_digest, User.digest(User.new_token))
-      expect(current_user).to be_nil
+    context "remember digest is wrong" do
+      it "return nil " do
+        remember(user)
+        user.update_attribute(:remember_digest, User.digest(User.new_token))
+        expect(current_user).to be_nil
+      end
     end
   end
 end
