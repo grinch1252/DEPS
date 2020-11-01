@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "users", type: :system do
 
-  describe "user create a new account" do
+  describe "#create user" do
     context "submit valid values" do
       it "add users count" do
         expect {

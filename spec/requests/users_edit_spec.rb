@@ -5,9 +5,9 @@ RSpec.describe "UsersEdit", type: :request do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
 
-  describe "get edit_user_path" do
-    context "valid edit" do
-      it "subit valid values" do
+  describe "#edit user" do
+    context "submit valid values" do
+      it "succeed edit" do
         log_in_as(user)
         expect(is_logged_in?).to be_truthy
         get edit_user_path(user)
@@ -15,16 +15,10 @@ RSpec.describe "UsersEdit", type: :request do
         expect(flash[:success]).to be_truthy
         expect(response).to redirect_to user_path(user)
       end
-
-      it "submit valid values before login" do
-        get edit_user_path(user)
-        valid_edit
-        expect(response).to redirect_to login_path
-      end
     end
 
-    context "invalid edit" do
-      it "submit invalid values" do
+    context "submit invalid values" do
+      it "fail to edit" do
         log_in_as(user)
         expect(is_logged_in?).to be_truthy
         get edit_user_path(user)
@@ -35,23 +29,16 @@ RSpec.describe "UsersEdit", type: :request do
     end
 
     context "before login" do
-      it "should redirect to login_path" do
+      it "failt t edit" do
         get edit_user_path(user)
         expect(response).to redirect_to login_path
       end
     end
 
     context "as wrong user" do
-      it "should redirect to root_path" do
+      it "fail to edit" do
         log_in_as(other_user)
         get edit_user_path(user)
-        expect(response).to redirect_to root_path
-      end
-
-      it "should reject values from wrong user" do
-        log_in_as(other_user)
-        get edit_user_path(user)
-        valid_edit
         expect(response).to redirect_to root_path
       end
     end
