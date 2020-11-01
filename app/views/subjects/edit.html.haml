@@ -1,0 +1,12 @@
+-provide(:title, "Edit subject")
+.input-container
+  .row
+    .col.form-box
+      %h1.input-title Edit subject
+      = form_with model: @subject, local: true do |f|
+        =render "shared/error_messages", object: @subject
+        .form-group
+          = f.text_field :name, class: "form-control", placeholder: "name"
+          = f.file_field :picture
+
+          =f.submit "Save cahnges", class:"btn btn-info submit-btn"
