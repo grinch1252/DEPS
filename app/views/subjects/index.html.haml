@@ -1,11 +1,14 @@
 - provide(:title, "Subjects")
+%button.btn.btn-info.create-subject.btn-sm{:onclick => "$('#inputSubjectForm').modal('show')", :type => "button"}
+  New subject
 - if logged_in?
-  .row
-    .container.subjects-container.span12
-      %ul.thumbnails
-        %li.span3
-          .subject-picture
-          .subject-caption
-            .subject-name
-            .subject-total-time
-          .subject-btn
+  .container.subjects-container
+    - if @user.subjects.any?
+      .page-control= paginate @subjects
+      %ul.subjects
+        = render @subjects
+    - else
+      .row
+        %h1 You haven't create subjects.
+
+  = render "subjects/input_form"

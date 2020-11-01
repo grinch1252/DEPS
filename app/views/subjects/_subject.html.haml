@@ -1,0 +1,20 @@
+%li.item{:id => "subject-#{subject.id}"}
+  - if subject.picture
+    %span.subject-picture= picture_for_subject(subject, size: 50)
+  %br
+  .subject-info
+    %h5.name= subject.name
+    - if subject.total_time == nil
+      %p total: 0 min
+    - elsif subject_total_time >= 60
+      %p.totla_time= "total: #{(subject.total_time / 60).floor} h, #{subject.total_time % 60} m"
+    - else
+      %p.total_time= "total: #{subject.total_time}"
+    - if current_user?(subject.user)
+      .buttons
+        .show-button.show-subject.subject-btn
+          = link_to "detail", subject_path(subject), class: ".btn btn-sm btn-info"
+        .edit-button.edit-subject.subject-btn
+          = link_to "edit", edit_subject_path(subject), class: ".btn btn-sm btn-secondary"
+        .delete-button.delete-subject.subject-btn
+          = link_to "delete", subject, method: :delete, data: {confirm: "Do you really want to delete this subject?"}, class: ".btn btn-sm btn-danger"

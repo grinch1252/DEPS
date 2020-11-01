@@ -1,0 +1,12 @@
+#inputSubjectForm.modal.fade{:tabindex => "-1"}
+  .modal-dialog.modal-nm
+    .modal-content
+      .modal-header
+        %h4.modal-title New Subject
+      .modal-body
+        = form_with model: @subject, url: subjects_path do |f|
+          .field.name-form
+            = f.text_field :name, class: "form-control", placeholder: "Name"
+          .field.picture-form
+            = f.file_field :picture
+          .subject-btn= f.submit "Create subject", class: "btn btn-block btn-info"

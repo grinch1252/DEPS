@@ -211,3 +211,48 @@ section {
     }
   }
 }
+
+// subjects
+
+.subjects-container {
+  margin-top: 60px;
+}
+
+.create-subject {
+  float: right;
+  size: 60px;
+}
+.item {
+  width: 200px;
+  text-align: center;
+}
+
+.subjects>li {
+  float: left;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  list-style: none;
+  border: 1px solid #555;
+}
+
+.subject-picture {
+  margin-bottom: 20px;
+  margin-top: 4px;
+}
+
+.subject-info {
+  padding: 9px;
+
+}
+
+.buttons {
+  display: flex;
+  position: relative;
+  left: 10px;
+  .subject-btn {
+    margin-left: 4px;
+  }
+}
+
+
+

@@ -11,5 +11,5 @@
   %span.content
     = event.body
   - if current_user?(event.user)
-    = link_to event, method: :delete, data: {confirm: "Do you really want to delete this event?"} do
-      %span.fa.fa-trash
+    .delete-button
+      = link_to "delete", event, method: :delete, data: {confirm: "Do you really want to delete this event?"}, class: ".btn btn-sm btn-danger"
