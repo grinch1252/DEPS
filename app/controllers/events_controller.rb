@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :correct_user, only: [:destroy]
 
   def index
-    @user = current_user
+    define_user
     @events = @user.events.page(params[:page]).per(5)
     @event = Event.new
   end
@@ -13,8 +13,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @event = current_user.events.build(event_params) if logged_in?
+    define_user
+    @event = @user.events.build(event_params) if logged_in?
     @events = @user.events.page(params[:page]).per(5)
 
     if @event.save

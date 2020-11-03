@@ -4,7 +4,7 @@
       .modal-header
         %h4.modal-title New Subject
       .modal-body
-        = form_with model: @subject, url: subjects_path, local: true do |f|
+        = form_with(model: @subject, url: subjects_path, local: true) do |f|
           .field.name-form
             = f.text_field :name, class: "form-control", placeholder: "Name"
           .field.picture-form

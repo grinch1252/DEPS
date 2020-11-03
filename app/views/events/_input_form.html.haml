@@ -4,7 +4,7 @@
       .modal-header
         %h4.modal-title New Event
       .modal-body
-        = form_with model: @event, url: events_path do |e|
+        = form_with(model: @event, url: events_path) do |e|
           .field.title-form
             = e.text_field :title, class: "form-control", placeholder: "Title"
           .field.time-form
