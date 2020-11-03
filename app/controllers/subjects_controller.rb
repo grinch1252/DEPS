@@ -22,6 +22,12 @@ class SubjectsController < ApplicationController
   def show
     define_user
     @subject = Subject.find(params[:id])
+    @logs = []
+    @user.microposts.each do |micropost|
+      if micropost.title == @subject.name
+        @logs.append(micropost)
+      end
+    end
   end
 
   def edit
