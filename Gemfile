@@ -31,10 +31,11 @@ gem 'chartkick'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'font-awesome-rails'
-gem 'mysql2'
+# gem 'mysql2'
+gem 'dotenv-rails'
 
 group :development, :test do
-  # gem 'sqlite3'
+  gem 'sqlite3'
   gem 'byebug',  '9.0.6', platform: :mri
   gem 'rspec-rails', '~> 3.8'
   gem 'spring-commands-rspec'
@@ -53,8 +54,9 @@ group :development do
 end
 
 
-group :production do
-  # gem 'pg', '0.20.0'
+group :production, :staging do
+  gem 'pg', '0.20.0'
+  gem 'unicorn'
   gem 'fog-aws'
 end
 
