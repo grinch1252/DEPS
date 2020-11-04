@@ -28,6 +28,12 @@ class SubjectsController < ApplicationController
         @logs.append(micropost)
       end
     end
+    @total_time = 0
+    @record_days = []
+    @logs.each do |log|
+      @total_time += log.time
+      @record_days.append(log.created_at)
+    end
   end
 
   def edit

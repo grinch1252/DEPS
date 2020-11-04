@@ -1,1 +1,1 @@
-=@logs
+= line_chart [{ data: @logs.map { |log| log.slice(:created_at, :time).values }}]
