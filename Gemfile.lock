@@ -143,6 +143,8 @@ GEM
       momentjs-rails (>= 2.9.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.2.1)
+      activesupport (>= 5)
     haml (5.2.0)
       temple (>= 0.8.0)
       tilt
@@ -383,6 +385,7 @@ DEPENDENCIES
   fog-aws
   font-awesome-rails
   fullcalendar-rails
+  groupdate
   haml-rails (~> 2.0)
   jbuilder (~> 2.7)
   jquery-rails (= 4.3.3)

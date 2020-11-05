@@ -1,1 +1,10 @@
-= line_chart [{ data: @logs.map { |log| log.slice(:created_at, :time).values }}]
+- provide(:title, @subject.name)
+.container.subject-show-container
+  .row
+    .col-md-6
+      = column_chart @records, width: "100%", height: "300px", xmin: @lastmonth_today, xmax: @today,label: "Value", discrete: true, colors: ["#3eaeca"]
+    .col-md-6
+      .page-control= paginate @microposts
+      %h4 Logs
+      %ol.microposts
+        = render @microposts

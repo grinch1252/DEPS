@@ -22,18 +22,10 @@ class SubjectsController < ApplicationController
   def show
     define_user
     @subject = Subject.find(params[:id])
-    @logs = []
-    @user.microposts.each do |micropost|
-      if micropost.title == @subject.name
-        @logs.append(micropost)
-      end
-    end
-    @total_time = 0
-    @record_days = []
-    @logs.each do |log|
-      @total_time += log.time
-      @record_days.append(log.created_at)
-    end
+    @microposts = @user.microposts.where("title LIKE ?", "%#{@subject.name}%").page(params[:page]).per(7)
+    @records = @microposts.pluck(:created_at, :time)
+    @today = Date.today
+    @lastmonth_today = @today.prev_day(14)
   end
 
   def edit

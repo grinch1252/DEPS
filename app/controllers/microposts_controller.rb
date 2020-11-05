@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
 
   def create
     @user = current_user
-    @micropost = current_user.microposts.build(micropost_params) if logged_in?
+    @micropost = @user.microposts.build(micropost_params) if logged_in?
     @microposts = @user.microposts.page(params[:page]).per(7)
 
     if @micropost.save
@@ -14,25 +14,6 @@ class MicropostsController < ApplicationController
       end
     else
       redirect_to @user
-    end
-  end
-
-  def edit
-    @micropost = current_user.microposts.find_by(id: params[:id]) || nil
-    if @micropost.nil?
-      flash[:warning] = "No permission to edit."
-      redirect_to root_url
-    end
-  end
-
-  def update
-    @micropost = current_user.microposts.find_by(id: params[:id])
-    @micropost.update_attributes(micropost_params)
-    if @micropost.save
-      flash[:success] = "Save changes."
-      redirect_to current_user
-    else
-      render edit_micropost_path
     end
   end
 

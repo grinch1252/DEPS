@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_132712) do
   create_table "subjects", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name"
-    t.integer "total_time"
+    t.integer "total_time", default: 0
     t.string "picture"
     t.boolean "done", default: false
     t.datetime "created_at", precision: 6, null: false

@@ -31,7 +31,7 @@ gem 'chartkick'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'font-awesome-rails'
-# gem 'mysql2'
+gem 'groupdate'
 gem 'dotenv-rails'
 
 group :development, :test do

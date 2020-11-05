@@ -4,12 +4,6 @@
   %br
   .subject-info
     %h5.name= subject.name
-    - if subject.total_time == nil
-      %p total: 0 min
-    - elsif subject_total_time >= 60
-      %p.totla_time= "total: #{(subject.total_time / 60).floor} h, #{subject.total_time % 60} m"
-    - else
-      %p.total_time= "total: #{subject.total_time}"
     - if current_user?(subject.user)
       .buttons
         .show-button.show-subject.subject-btn

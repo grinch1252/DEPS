@@ -220,7 +220,8 @@ section {
 
 .create-subject {
   float: right;
-  size: 60px;
+  size: 160px;
+  margin: 20px;
 }
 .item {
   width: 200px;
@@ -252,6 +253,12 @@ section {
   .subject-btn {
     margin-left: 4px;
   }
+}
+
+//subject-show
+
+.subject-show-container {
+  margin-top: 60px;
 }
 
 
