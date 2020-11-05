@@ -7,8 +7,8 @@
         %h1.user-left-name
           = @user.name
         %span
-          %b logs:
-          = @user.microposts.count
+          %b
+          = "#{@user.microposts.count}件の投稿"
       %section.stats
         = render "shared/stats"
     .col-md-9

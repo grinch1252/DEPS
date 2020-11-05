@@ -14,7 +14,7 @@ User.create!( name:  name,
               password:              password,
               password_confirmation: password,
               activated: true,
-              picture: open("#{Rails.root}/db/fixtures/default.jpg"))
+              picture: open("#{Rails.root}/db/fixtures/no-icon.png"))
 end
 
 users = User.order(:created_at).take(10)

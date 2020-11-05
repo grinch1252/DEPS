@@ -1,10 +1,10 @@
 = form_with(model: @micropost, remote: true) do |f|
   = render "shared/error_messages", object: f.object
   .field.title-form
-    = f.text_field :title, class: "form-control", placeholder: "Title", id: "title-form"
+    = f.text_field :title, class: "form-control", placeholder: "タイトル", id: "title-form"
   .field.time-form
-    = f.number_field :time, class: "form-control", placeholder: "Time", id: "time-form"
+    = f.number_field :time, class: "form-control", placeholder: "時間", id: "time-form"
   .field.content-form
-    = f.text_area :content, class: "form-control", placeholder: "Compose text...", id: "content-form"
+    = f.text_area :content, class: "form-control", placeholder: "メモ", id: "content-form"
 
-  = f.submit "Post", class: "btn btn-block btn-info"
+  = f.submit "投稿", class: "btn btn-block btn-info"

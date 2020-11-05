@@ -5,15 +5,15 @@
   %span.title=micropost.title
   |
   - if micropost.time == nil
-    0 m
+    0 分
   - elsif micropost.time >= 60
-    %span.time= "#{(micropost.time / 60).floor} h, #{micropost.time % 60} m"
+    %span.time= "#{(micropost.time / 60).floor} 時間, #{micropost.time % 60} 分"
   -else
-    %span.time= "#{micropost.time} m"
+    %span.time= "#{micropost.time} 分"
   %span.timestamp
     #{micropost.created_at.to_s(:datetime_jp)}
   %span.content= micropost.content
   = render "likes/like", micropost: micropost
   - if current_user?(micropost.user)
     .delete-button
-      = link_to "delete", micropost, method: :delete, data: {confirm: "Do you really want to delete this post?"}, class: ".btn btn-sm btn-danger"
+      = link_to "削除", micropost, method: :delete, data: {confirm: "本当にこの投稿を削除してもよろしいですか?"}, class: ".btn btn-sm btn-danger"

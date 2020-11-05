@@ -2,11 +2,11 @@
   .modal-dialog.modal-nm
     .modal-content
       .modal-header
-        %h4.modal-title New Subject
+        %h4.modal-title 新しいサブジェクト
       .modal-body
         = form_with(model: @subject, url: subjects_path, local: true) do |f|
           .field.name-form
-            = f.text_field :name, class: "form-control", placeholder: "Name"
+            = f.text_field :name, class: "form-control", placeholder: "サブジェクト名"
           .field.picture-form
             = f.file_field :picture
-          .subject-btn= f.submit "Create subject", class: "btn btn-block btn-info"
+          .subject-btn= f.submit "サブジェクト作成", class: "btn btn-block btn-info"

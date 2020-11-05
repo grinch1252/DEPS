@@ -1,6 +1,6 @@
 %h1 DEPS
 %p
-  Hello #{@user.name},
+#{@user.name} 様
 %p
-  Welcome to DEPS. Please click on the link below to activate your account:
-= link_to "Activate your account", edit_account_activation_url(@user.activation_token, email: @user.email)
+  ようこそDEPSへ。アカウントを有効化するために、下のリンクをクリックしてください。
+= link_to "アカウントを有効化する", edit_account_activation_url(@user.activation_token, email: @user.email)

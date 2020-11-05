@@ -7,4 +7,4 @@
       %h4.event-detail= @event.body
       - if current_user?(@event.user)
         .event-delete-button
-          = link_to "delete", @event, method: :delete, data: {confirm: "Do you really want to delete this event?"}, class: ".btn btn-sm btn-danger"
+          = link_to "削除", @event, method: :delete, data: {confirm: "本当にこのイベントを削除してよろしいですか?"}, class: ".btn btn-sm btn-danger"

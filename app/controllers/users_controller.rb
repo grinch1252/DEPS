@@ -44,14 +44,14 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "Following"
+    @title = "フォロー一覧"
     @user  = User.find(params[:id])
     @users = @user.following.page(params[:page]).per(7)
     render "show_follow"
   end
 
   def followers
-    @title = "Followers"
+    @title = "フォロワー一覧"
     @user  = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(7)
     render "show_follow"
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
 
     def logged_in_user
       unless logged_in?
-        flash[:warning] = "Please login."
+        flash[:warning] = "この操作にはログインが必要です。"
         redirect_to login_path
       end
     end

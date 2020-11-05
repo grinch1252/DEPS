@@ -6,26 +6,26 @@
         - if logged_in?
           %li= render "layouts/search", class: "nav-link"
           %i.fa.fa-home.fa-xs
-          %li.nav-item= link_to "Home", home_path, class: "nav-link"
+          %li.nav-item= link_to "ホーム", home_path, class: "nav-link"
           %i.fa.fa-file-text-o.fa-xs
-          %li.nav-item= link_to "Subjects", subjects_path, class: "nav-link"
+          %li.nav-item= link_to "サブジェクト", subjects_path, class: "nav-link"
           %i.fa.fa-calendar.fa-xs
-          %li.nav-item= link_to "Events", events_path, class: "nav-link"
+          %li.nav-item= link_to "イベント", events_path, class: "nav-link"
           %i.fa.fa-line-chart.fa-xs
-          %li.nav-item= link_to "Chart", graph_path, class: "nav-link"
+          %li.nav-item= link_to "グラフ", graph_path, class: "nav-link"
           %i.fa.fa-user.fa-xs
-          %li.nav-item= link_to "My page", user_path(current_user), class: "nav-link"
+          %li.nav-item= link_to "マイページ", user_path(current_user), class: "nav-link"
         - if logged_in?
           %i.fa.fa-cog.fa-xs
           %li.dropdown
             %li.dropdown
               %a.dropdown-toggle.header-toggle{"data-toggle" => "dropdown", :href => "#"}
-                Account
+                アカウント
                 %b.caret
               %ul.dropdown-menu
-                %li.nav-item= link_to "Edit Account", edit_user_path(current_user), class: "nav-link"
+                %li.nav-item= link_to "アカウント設定", edit_user_path(current_user), class: "nav-link"
                 %li.divider
                 %li.nav-item
-                  = link_to "Logout", logout_path, method: :delete, class: "nav-link"
+                  = link_to "ログアウト", logout_path, method: :delete, class: "nav-link"
         - else
-          %li.nav-item= link_to "Login", login_path, class: "nav-link"
+          %li.nav-item= link_to "ログイン", login_path, class: "nav-link"

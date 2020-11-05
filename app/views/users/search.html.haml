@@ -1,10 +1,10 @@
-- provide(:title, "Search result")
+- provide(:title, "検索結果")
 .row
   .result-container.col-md-6.offset-md-3
     - if @users.present?
       .page-control= paginate @users
-      %h1.result Search result
+      %h1.result 検索結果
       %ol.searchUsers
         = render @users
     -else
-      %h1 Could not find required user in this site.
+      %h1 ユーザーが見つかりませんでした。

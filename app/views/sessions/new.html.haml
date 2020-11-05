@@ -1,8 +1,8 @@
--provide(:title, "Login")
+-provide(:title, "ログイン")
 .input-container
   .row
     .col.form-box
-      %h1.input-title Log in
+      %h1.input-title ログイン
       = form_with(scope: :session, url: login_path, local: true) do |f|
         .form-group
           =f.text_field :email, class: "form-control", placeholder: "email"
@@ -11,7 +11,7 @@
         .form-group
           =f.check_box :remember_me, class: "form-check"
           =f.label :remember_me, "Remember me", class: "form-check-label"
-        =f.submit "Login", class:"btn btn-info submit-btn"
+        =f.submit "ログイン", class:"btn btn-info submit-btn"
 
       .account-container
         %p.do-not-have-account Haven't you created own account?

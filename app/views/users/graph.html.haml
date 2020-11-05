@@ -1,14 +1,14 @@
 .container.graph-container
-  %h2.graph-title Report
+  %h2.graph-title
   .figure-sum-and-button.row
     %span.figure-sum-text.col-sm
       %div.total-time
-        Total：
+        合計：
         %em.figure-sum= sum_times
-        minute
+        分
         (
         %em.figure-sum= to_hour
-        hour)
+        時間)
     %span.dropdown.col-sm.period-button
       %button#dropdownMenuButton.btn.btn-info.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
         = @user.microposts_period(@period).keys.first

@@ -1,15 +1,15 @@
 = form_with model: @user, local: true do |f|
   =render "shared/error_messages", object: @user
   .form-group
-    =f.text_field :name, class: "form-control", placeholder: "name"
+    =f.text_field :name, class: "form-control", placeholder: "名前"
   .form-group
-    =f.text_field :email, class: "form-control", placeholder: "email"
+    =f.text_field :email, class: "form-control", placeholder: "メールアドレス"
   .form-group
-    =f.text_field :password, class: "form-control", placeholder: "password"
+    =f.text_field :password, class: "form-control", placeholder: "パスワード"
   .form-group
-    =f.text_field :password_confirmation, placeholder: "password_confirmation", class: "form-control"
+    =f.text_field :password_confirmation, placeholder: "パスワード再確認", class: "form-control"
 
-  = f.label "choose your profile image"
+  = f.label "プロフィール画像"
   = f.file_field :picture
 
   =f.submit yield(:button_text), class:"btn btn-info submit-btn"

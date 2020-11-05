@@ -14,7 +14,7 @@ class SubjectsController < ApplicationController
     if @subject.save
       redirect_to subjects_path
     else
-      flash[:danger] = "Invalid information."
+      flash[:danger] = "無効な情報です。"
       redirect_to subjects_path
     end
   end
@@ -37,10 +37,10 @@ class SubjectsController < ApplicationController
     define_user
     @subject = @user.subjects.find_by(id: params[:id])
     if @subject.update_attributes(subject_params)
-      flash[:success] = "Subject updated."
+      flash[:success] = "更新しました。"
       redirect_to subjects_path
     else
-      flash[:danger] = "Invalid information."
+      flash[:danger] = "無効な情報です。"
       redirect_to edit_subject_path(@subject)
     end
   end

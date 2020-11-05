@@ -1,4 +1,4 @@
-- provide(:title, "Home")
+- provide(:title, "ホーム")
 - if logged_in?
   .container.show-container
     .row
@@ -11,14 +11,14 @@
       .col-md-9
         - if @feed_items.any?
           .page-control= paginate @feed_items
-          %h4 TimeLine
+          %h4 タイムライン
           %ol.microposts#area_microposts
             = render @feed_items
 
 - else
   .jumbotron.jumbotron-fluid.jumbotron-extend
     .container
-      %h1 Welcome to DEPS.
-      %p DEPS helps you record your study time and tasks.
-      %p Let's click button below and create your account.
+      %h1 ようこそDEPSへ。
+      %p DEPSはあなたの時間を管理し、可視化する学習記録アプリです。
+      %p 下のボタンからアカウントを作成し、自己管理を始めましょう。
       = link_to "Sign up now", new_user_path, class: "btn btn-info btn-lg"

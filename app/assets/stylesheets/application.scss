@@ -13,6 +13,7 @@ $dropDown       : true;
 body {
   background-color: #1a1d21;
   color: #fff;
+  font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
 }
 
 section {
@@ -201,6 +202,7 @@ section {
   a {
     padding: 0 10px;
     color: $colDefault;
+    font-size: 14px;
     &:hover {
       text-decoration: none;
       color: $colHighlight;

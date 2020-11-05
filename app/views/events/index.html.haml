@@ -1,15 +1,15 @@
-- provide(:title, "Events")
+- provide(:title, "イベント一覧")
 .events-container
   .row
     #calendar.col-md-5.offset-md-1
 
     .col-md-5
       %button.btn.btn-info.btn-event{:onclick => "$('#inputEventForm').modal('show')", :type => "button"}
-        New event
+        イベント作成
       - if @user.events.any?
         .page-control= paginate @events
         %h4
-          Events
+          イベント一覧
         %ol.events
           = render @events
 

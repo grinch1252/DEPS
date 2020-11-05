@@ -11,11 +11,11 @@ class SessionsController < ApplicationController
         params[:session][:remember_me] == "1" ? remember(@user) : forget(@user)
         redirect_to @user
       else
-        flash[:danger] = "Please check email and activate account."
+        flash[:danger] = "メールを確認し、アカウントの有効化を行ってください。"
         redirect_to root_url
       end
     else
-      flash.now[:danger] = "Invalid email/password combination"
+      flash.now[:danger] = "メールアドレスまたはパスワードが適切ではありません。"
       render "new"
     end
   end
