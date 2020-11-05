@@ -8,7 +8,7 @@ RSpec.describe UserMailer, type: :mailer do
     let(:mail) { UserMailer.account_activation(user) }
 
     it "renders the headers" do
-      expect(mail.subject).to eq("Account activation")
+      expect(mail.subject).to eq("アカウント有効化")
       expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(["noreply@example.com"])
     end
@@ -25,7 +25,7 @@ RSpec.describe UserMailer, type: :mailer do
 
     it "renders the headers" do
       user.reset_token = User.new_token
-      expect(mail.subject).to eq("Password reset")
+      expect(mail.subject).to eq("パスワード再設定")
       expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(["noreply@example.com"])
     end

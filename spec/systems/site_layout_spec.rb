@@ -10,7 +10,7 @@ RSpec.describe "Site layouts", type: :system do
 
     it "has login link" do
       visit root_path
-      expect(page).to have_link "Login", href: login_path
+      expect(page).to have_link "ログイン", href: login_path
     end
   end
 end

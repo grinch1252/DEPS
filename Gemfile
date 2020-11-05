@@ -33,6 +33,7 @@ gem 'momentjs-rails'
 gem 'font-awesome-rails'
 gem 'groupdate'
 gem 'dotenv-rails'
+gem 'mail-iso-2022-jp'
 
 group :development, :test do
   gem 'sqlite3'

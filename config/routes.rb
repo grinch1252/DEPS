@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   get "home", to: "static_pages#home"
-  get "about", to: "static_pages#about"
   get  "/signup", to: "users#new"
   post "/signup", to: "users#create"
   get "/graph",  to: "users#graph"

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Login", type: :system do
-  
+
   let!(:user) { create(:user) }
 
   describe "login" do
@@ -11,7 +11,7 @@ RSpec.describe "Login", type: :system do
         expect(page).to have_selector ".input-container"
         fill_in "email", with: user.email
         fill_in "password", with: user.password
-        click_button "Login"
+        click_button "ログイン"
         expect(current_path).to eq user_path(user)
       end
     end
@@ -22,7 +22,7 @@ RSpec.describe "Login", type: :system do
         expect(page).to have_selector ".input-container"
         fill_in "email", with: ""
         fill_in  "password", with: ""
-        click_button "Login"
+        click_button "ログイン"
         expect(current_path).to eq login_path
         expect(page).to have_selector ".input-container"
         expect(page).to have_selector ".alert-danger"
@@ -33,7 +33,7 @@ RSpec.describe "Login", type: :system do
         expect(page).to have_selector ".input-container"
         fill_in "email", with: ""
         fill_in "password", with: ""
-        click_button "Login"
+        click_button "ログイン"
         expect(current_path).to eq login_path
         expect(page).to have_selector ".input-container"
         expect(page).to have_selector ".alert-danger"
@@ -49,10 +49,10 @@ RSpec.describe "Login", type: :system do
       expect(page).to have_selector ".input-container"
       fill_in "email", with: user.email
       fill_in "password", with: user.password
-      click_button "Login"
+      click_button "ログイン"
       expect(current_path).to eq user_path(user)
       find(".header-toggle").click
-      click_link "Logout"
+      click_link "ログアウト"
       expect(current_path).to eq root_path
     end
   end

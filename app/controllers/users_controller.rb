@@ -14,10 +14,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = "アカウントを有効化する為にメールを確認してください。"
       redirect_to root_path
     else
-      flash[:danger] = "Invalid information."
+      flash[:danger] = "無効な情報です。"
       redirect_to new_user_path
     end
   end
@@ -35,10 +35,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated."
+      flash[:success] = "更新されました。"
       redirect_to @user
     else
-      flash[:danger] = "Invalid information."
+      flash[:danger] = "無効な情報です。"
       redirect_to edit_user_path(@user)
     end
   end
