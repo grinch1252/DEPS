@@ -35,3 +35,6 @@
               =f.check_box :remember_me, class: "form-check"
               =f.label :remember_me, "Remember me", class: "form-check-label"
             =f.submit "Login", class:"btn btn-info submit-btn"
+        %br
+        %p or
+        = link_to  "Login as guest", "#", method: :post, class:"btn btn-secondary"
