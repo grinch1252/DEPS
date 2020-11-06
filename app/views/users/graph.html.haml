@@ -3,12 +3,12 @@
   .figure-sum-and-button.row
     %span.figure-sum-text.col-sm
       %div.total-time
-        合計：
+        Total：
         %em.figure-sum= sum_times
-        分
+        minute
         (
         %em.figure-sum= to_hour
-        時間)
+        hour)
     %span.dropdown.col-sm.period-button
       %button#dropdownMenuButton.btn.btn-info.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
         = @user.microposts_period(@period).keys.first

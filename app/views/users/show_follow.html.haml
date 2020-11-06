@@ -8,7 +8,7 @@
           = @user.name
         %span
           %b
-          = "#{@user.microposts.count}件の投稿"
+          = pluralize(@user.microposts.count, "post")
       %section.stats
         = render "shared/stats"
     .col-md-9

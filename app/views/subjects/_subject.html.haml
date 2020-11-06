@@ -7,8 +7,8 @@
     - if current_user?(subject.user)
       .buttons
         .show-button.show-subject.subject-btn
-          = link_to "詳細", subject_path(subject), class: ".btn btn-sm btn-info"
+          = link_to "detail", subject_path(subject), class: ".btn btn-sm btn-info"
         .edit-button.edit-subject.subject-btn
-          = link_to "編集", edit_subject_path(subject), class: ".btn btn-sm btn-secondary"
+          = link_to "edit", edit_subject_path(subject), class: ".btn btn-sm btn-secondary"
         .delete-button.delete-subject.subject-btn
-          = link_to "削除", subject, method: :delete, data: {confirm: "本当にこのサブジェクトを削除してよろしいですか?"}, class: ".btn btn-sm btn-danger"
+          = link_to "delete", subject, method: :delete, data: {confirm: "Are you sure you want to permanently delete this subject?"}, class: ".btn btn-sm btn-danger"

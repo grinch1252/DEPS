@@ -1,12 +1,12 @@
--provide(:title, "サブジェクトの編集")
+-provide(:title, "Edit subject")
 .input-container
   .row
     .col.form-box
-      %h1.input-title サブジェクトの編集
+      %h1.input-title Edit subject
       = form_with model: @subject, method: :patch, local: true do |f|
         =render "shared/error_messages", object: @subject
         .form-group
-          = f.text_field :name, class: "form-control", placeholder: "サブジェクト名"
+          = f.text_field :name, class: "form-control", placeholder: "name"
           = f.file_field :picture
 
-          =f.submit "変更", class:"btn btn-info submit-btn"
+          =f.submit "Save Changes", class:"btn btn-info submit-btn"

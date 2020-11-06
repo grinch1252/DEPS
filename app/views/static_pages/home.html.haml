@@ -1,4 +1,4 @@
-- provide(:title, "ホーム")
+- provide(:title, "Home")
 - if logged_in?
   .container.show-container
     .row
@@ -11,14 +11,27 @@
       .col-md-9
         - if @feed_items.any?
           .page-control= paginate @feed_items
-          %h4 タイムライン
+          %h4 TimeLine
           %ol.microposts#area_microposts
             = render @feed_items
 
 - else
-  .jumbotron.jumbotron-fluid.jumbotron-extend
-    .container
-      %h1 ようこそDEPSへ。
-      %p DEPSはあなたの時間を管理し、可視化する学習記録アプリです。
-      %p 下のボタンからアカウントを作成し、自己管理を始めましょう。
-      = link_to "アカウント作成", new_user_path, class: "btn btn-info btn-lg"
+  .top-container
+    .left-container.column
+      .container
+        %h1 Welcome to DEPS
+        %p DEPS helps you manage task and create schedules.
+        %p Let's click the button below and create own account now.
+        = link_to "Create Account", new_user_path, class: "btn btn-info btn-lg"
+    .right-container.column
+      .signup-container
+        .col.form-box
+          = form_with(scope: :session, url: login_path, local: true) do |f|
+            .form-group
+              =f.text_field :"email", class: "form-control", placeholder: "email-address"
+            .form-group
+              =f.text_field :password, class: "form-control", placeholder: "password"
+            .form-group
+              =f.check_box :remember_me, class: "form-check"
+              =f.label :remember_me, "Remember me", class: "form-check-label"
+            =f.submit "Login", class:"btn btn-info submit-btn"

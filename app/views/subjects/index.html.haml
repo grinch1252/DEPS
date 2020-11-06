@@ -1,6 +1,6 @@
-- provide(:title, "サブジェクト一覧")
+- provide(:title, "Subjects")
 %button.btn.btn-info.create-subject.btn-md{:onclick => "$('#inputSubjectForm').modal('show')", :type => "button"}
-  サブジェクト新規作成
+  New subject
 - if logged_in?
   .container.subjects-container
     - if @user.subjects.any?
@@ -9,6 +9,6 @@
         = render @subjects
     - else
       .row
-        %h1 まだサブジェクトが作成されていません。
+        %h1 You haven't created subject yet!
 
   = render "subjects/input_form"

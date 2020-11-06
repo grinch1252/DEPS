@@ -14,10 +14,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:info] = "アカウントを有効化する為にメールを確認してください。"
+      flash[:info] = "Please check email and activate your account."
       redirect_to root_path
     else
-      flash[:danger] = "無効な情報です。"
+      flash[:danger] = "Invalid information."
       redirect_to new_user_path
     end
   end
@@ -35,23 +35,23 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "更新されました。"
+      flash[:success] = "Profile has been updated."
       redirect_to @user
     else
-      flash[:danger] = "無効な情報です。"
+      flash[:danger] = "Invalid information."
       redirect_to edit_user_path(@user)
     end
   end
 
   def following
-    @title = "フォロー一覧"
+    @title = "Following"
     @user  = User.find(params[:id])
     @users = @user.following.page(params[:page]).per(7)
     render "show_follow"
   end
 
   def followers
-    @title = "フォロワー一覧"
+    @title = "Followers"
     @user  = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(7)
     render "show_follow"
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
 
     def logged_in_user
       unless logged_in?
-        flash[:warning] = "この操作にはログインが必要です。"
+        flash[:warning] = "Please login."
         redirect_to login_path
       end
     end

@@ -5,10 +5,10 @@ class AccountActivationsController < ApplicationController
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
       user.activate
       log_in user
-      flash[:success] = "アカウントの有効化が完了しました。"
+      flash[:success] = "Account has been successfully activated."
       redirect_to user
     else
-      flash[:danger] = "アカウントの有効化に失敗しました。"
+      flash[:danger] = "Failed to activated account."
       redirect_to root_url
     end
   end

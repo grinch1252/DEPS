@@ -1,9 +1,9 @@
--provide(:title, "パスワード再設定")
+-provide(:title, "Password reset")
 .input-container
   .row
     .col.form-box
-      %h1.input-title パスワード再設定
+      %h1.input-title Password reset
       = form_with(scope: :password_reset, url: password_resets_path, local: true) do |f|
         .form-group
-          =f.text_field :email, class: "form-control", placeholder: "現在のメールアドレスを入力してください"
-        = f.submit "送信", class: "btn btn-info submit-btn"
+          =f.text_field :email, class: "form-control", placeholder: "email-address"
+        = f.submit "Submit", class: "btn btn-info submit-btn"

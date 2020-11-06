@@ -2,15 +2,15 @@
   .modal-dialog.modal-nm
     .modal-content
       .modal-header
-        %h4.modal-title 新しいイベント
+        %h4.modal-title New Event
       .modal-body
         = form_with(model: @event, url: events_path) do |e|
           .field.title-form
-            = e.text_field :title, class: "form-control", placeholder: "タイトル"
+            = e.text_field :title, class: "form-control", placeholder: "title"
           .field.time-form
             = e.datetime_field  :start, class: "form-control", placeholder: "XXXX-XX-XX"
             = e.datetime_field  :end, class: "form-control", placeholder: "XXXX-XX-XX"
           .field.body-form
-            = e.text_area :body, class: "form-control", placeholder: "イベントの詳細"
+            = e.text_area :body, class: "form-control", placeholder: "content"
 
-          .event-btn= e.submit "イベント作成", class: "btn btn-block btn-info"
+          .event-btn= e.submit "Create Event", class: "btn btn-block btn-info"

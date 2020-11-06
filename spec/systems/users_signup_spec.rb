@@ -7,11 +7,11 @@ RSpec.describe "users", type: :system do
       it "add users count" do
         expect {
         visit signup_path
-        fill_in "名前", with: "testuser"
-        fill_in "メールアドレス", with: "testuser@example.com"
-        fill_in "パスワード", with: "password"
-        fill_in "パスワード再確認", with: "password"
-        click_button "アカウント作成"}.to change(User, :count).by(1)
+        fill_in "name", with: "testuser"
+        fill_in "email-address", with: "testuser@example.com"
+        fill_in "password", with: "password"
+        fill_in "password confirmation", with: "password"
+        click_button "Create Account"}.to change(User, :count).by(1)
         expect(current_path).to eq root_path
       end
     end
@@ -19,11 +19,11 @@ RSpec.describe "users", type: :system do
     context "submit invalid values" do
       before do
         visit signup_path
-        fill_in "名前", with: ""
-        fill_in "メールアドレス", with: "testuser@invalid"
-        fill_in "パスワード", with: ""
-        fill_in "パスワード再確認", with: ""
-        click_button "アカウント作成"
+        fill_in "name", with: ""
+        fill_in "email-address", with: "testuser@invalid"
+        fill_in "password", with: ""
+        fill_in "password confirmation", with: ""
+        click_button "Create Account"
       end
       it "gets error messages" do
         expect(page).to have_selector(".alert-danger")

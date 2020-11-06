@@ -20,21 +20,33 @@ section {
   overflow: auto;
 }
 
-.jumbotron-extend {
-  background-color: #1a1d21;
-  .container {
-    margin-top: 6rem;
-    h1,
-    p {
-      margin-bottom: 0.75rem;
-      color: #fff;
+.top-container {
+  display: flex;
+  .column {
+    height: 100%;
+    width: 50%;
+  }
+  .left-container {
+    background-image: url("top.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top: 150px;
+    height: 620px;
+  }
+  .right-container {
+    .signup-container {
+      padding-top: 150px;
+      width: 450px;
+      text-align: center;
+      margin: auto;
     }
-    h1 {
-      margin-bottom: 1.5rem;
-    }
-    p:last-of-type {
-      margin-bottom: 2rem;
-    }
+  }
+}
+
+@media all and (min-width: 500px) {
+  .wrapper {
+    display: flex;
   }
 }
 
@@ -56,21 +68,6 @@ section {
     margin-right: 10px;
     margin-top: 5px;
   }
-}
-
-//about page
-
-.about-container {
-  margin-top: 90px;
-  text-align: center;
-}
-
-.explain-container {
-  margin-top: 30px;
-}
-
-.text-container {
-  margin-top: 20px;
 }
 
 // calendar
