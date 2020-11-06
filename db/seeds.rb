@@ -5,6 +5,13 @@ User.create!(name:  "Алексей Пажитнов",
   activated: true,
   picture: open("#{Rails.root}/db/fixtures/default.jpg"))
 
+User.create!(name:  "Guest User",
+  email: "guest@deps.org",
+  password:              "password",
+  password_confirmation: "password",
+  activated: true,
+  picture: open("#{Rails.root}/db/fixtures/default.jpg"))
+
 50.times do |n|
 name  = Faker::Name.name
 email = "example-#{n+1}@deps.org"

@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   resources :subjects
   resources :relationships, only: [:create, :destroy]
   resources :likes, only:[:create, :destroy]
+  resources :guest_sessions, only: [:create]
 end
