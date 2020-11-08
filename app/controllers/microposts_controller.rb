@@ -3,7 +3,7 @@ class MicropostsController < ApplicationController
   before_action :correct_user, only: [:destroy]
 
   def create
-    @user = current_user
+    define_user
     @micropost = @user.microposts.build(micropost_params) if logged_in?
     @microposts = @user.microposts.page(params[:page]).per(7)
 
@@ -18,7 +18,7 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    @user = current_user
+    define_user
     @micropost.destroy
     respond_to do |format|
       format.html { redirect_to @user }

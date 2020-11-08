@@ -1,6 +1,7 @@
 class SubjectsController < ApplicationController
   before_action :logged_in_user, only: [:index, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:destroy]
+  before_action :guest_user_validation, only: [:create, :destroy]
 
   def index
     define_user
@@ -14,7 +15,7 @@ class SubjectsController < ApplicationController
     if @subject.save
       redirect_to subjects_path
     else
-      flash[:danger] = "無効な情報です。"
+      flash[:danger] = "Invalid information."
       redirect_to subjects_path
     end
   end
@@ -37,10 +38,10 @@ class SubjectsController < ApplicationController
     define_user
     @subject = @user.subjects.find_by(id: params[:id])
     if @subject.update_attributes(subject_params)
-      flash[:success] = "更新しました。"
+      flash[:success] = "Subject has been updated."
       redirect_to subjects_path
     else
-      flash[:danger] = "無効な情報です。"
+      flash[:danger] = "Invalid information."
       redirect_to edit_subject_path(@subject)
     end
   end

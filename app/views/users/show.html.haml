@@ -12,9 +12,44 @@
       %section.micropost_form
         = render "shared/micropost_form" if current_user?(@user)
     .col-md-9
-      - if @user.microposts.any?
-        .page-control= paginate @microposts
-        %h4
-          Log
-        %ol.microposts#area_microposts
-          = render @microposts
+      %input#log.tab_switch{:checked => "checked", :name => "tab_item", :type => "radio"}/
+      %label.tab_item{:for => "log"} Log
+      %input#chart.tab_switch{:name => "tab_item", :type => "radio"}/
+      %label.tab_item{:for => "chart"} Chart
+      %input#subject.tab_switch{:name => "tab_item", :type => "radio"}/
+      %label.tab_item{:for => "subject"} Subjects
+      %br
+      %br
+      .tab_content#log_content
+        - if @user.microposts.any?
+          .page-control-in-tabs= paginate @microposts
+          %ol.microposts#area_microposts
+            = render @microposts
+      .tab_content#chart_content
+        .container.graph-container
+          %h2.graph-title
+          .figure-sum-and-button.row
+            %span.figure-sum-text.col-sm
+              %div.total-time
+                Total：
+                %em.figure-sum= sum_times
+                minute
+                (
+                %em.figure-sum= to_hour
+                hour)
+            %span.dropdown.col-sm.period-button
+              %button#dropdownMenuButton.btn.btn-info.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                = @user.microposts_period(@period).keys.first
+                \- #{@user.microposts_period(@period).keys.last}
+              .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+                = link_to "Week", graph_path(@user, period: "week"), class: "dropdown-item"
+                = link_to "Month", graph_path(@user, period: "month"), class: "dropdown-item"
+                = link_to "Year", graph_path(@user, period: "year"), class: "dropdown-item"
+          = line_chart @chart, discrete: true, colors: ["#3eaeca"]
+      .tab_content#subject_content
+        - if @user.subjects.any?
+          .page-control= paginate @subjects
+          %ul.subjects
+            = render @subjects
+        - else
+          %h1.no-subject No subject.

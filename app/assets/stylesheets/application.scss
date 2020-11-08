@@ -4,14 +4,14 @@
 @import '@fullcalendar/daygrid/main.css';
 @import 'font-awesome';
 
-$bgDefault      : #111111;
+$bgDefault      : #1a1d21;
 $bgHighlight    : #333333;
 $colDefault     : #3eaeca;
 $colHighlight   : #81c2d2;
 $dropDown       : true;
 
 body {
-  background-color: #1a1d21;
+  background-color:$bgDefault;
   color: #fff;
   font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
 }
@@ -28,6 +28,8 @@ section {
       opacity:1;
   }
 }
+
+// top page
 
 .top-container {
   display: flex;
@@ -225,6 +227,58 @@ section {
   }
 }
 
+.tab_switch {
+  display: none;
+  position: absolute;
+}
+
+.tab_item {
+  width: 80px;
+  height: 50px;
+  border: 1px solid $colDefault;
+  border-radius: 8px;
+  background-color: $bgHighlight;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: $colHighlight;
+  display: block;
+  cursor: pointer;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.tab_content {
+  display: none;
+}
+
+#log:checked ~ #log_content,
+#chart:checked ~ #chart_content,
+#subject:checked ~ #subject_content {
+  display: block;
+}
+
+input:checked + .tab_item {
+  background-color: rgb(38, 101, 184);
+  color: #fff;
+}
+
+.page-control-in-tabs {
+  float: right;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.no-subject {
+  margin-top: 40px;
+}
 // subjects
 
 .subjects-container {

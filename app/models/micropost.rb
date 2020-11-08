@@ -3,10 +3,9 @@ class Micropost < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   default_scope { order(created_at: :desc) }
-  validates :user_id, presence: true
+  validates :has_element, presence: true
   validates :title, length: {maximum: 25}
   validates :content, length: {maximum: 255}
-  validates :has_element, presence: true
 
   def like(user)
     likes.create(user_id: user.id)
@@ -23,7 +22,7 @@ class Micropost < ApplicationRecord
   private
 
     def has_element
-      time.presence or title.presence or content.presence
+      user_id.presence and time.presence and title.presence and content.presence
     end
 
 end

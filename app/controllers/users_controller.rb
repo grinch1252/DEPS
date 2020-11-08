@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user, only: [:edit, :update]
-  before_action :guest_user, only: [:edit]
+  before_action :guest_user_validation, only: [:update]
 
   def index
     @users = User.where(activeted :true).page(params[:page]).per(7)
@@ -27,6 +27,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @micropost = current_user.microposts.build
     @microposts = @user.microposts.page(params[:page]).per(7)
+    @period = params[:period]
+    @chart = @user.microposts_period(@period)
+    @subjects = @user.subjects.page(params[:page]).per(8)
   end
 
   def edit
@@ -67,8 +70,8 @@ class UsersController < ApplicationController
   end
 
   def graph
-    @user = current_user
-    @micropost = current_user.microposts.build
+    define_user
+    @micropost = @user.microposts.build
     @microposts = @user.microposts
     @period = params[:period]
     @chart = @user.microposts_period(@period)

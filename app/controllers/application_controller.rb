@@ -12,4 +12,11 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def guest_user_validation
+      if current_user.email == "guest@deps.org"
+        flash[:danger] = "This operation is not allowed."
+        redirect_to user_path(current_user)
+      end
+    end
+
 end

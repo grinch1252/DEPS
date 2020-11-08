@@ -22,6 +22,13 @@ RSpec.describe Micropost, type: :model do
       end
     end
 
+    context "title is nil" do
+      it "be invalid" do
+        micropost.title = nil
+        expect(micropost).to be_invalid
+      end
+    end
+
     context "title is too long" do
       it "be invalid" do
         micropost.title = "A" * 26
@@ -29,9 +36,23 @@ RSpec.describe Micropost, type: :model do
       end
     end
 
+    context "content is nil" do
+      it "be invalid" do
+        micropost.content = nil
+        expect(micropost).to be_invalid
+      end
+    end
+
     context "content is too long" do
       it "be invalid" do
         micropost.content = "A" * 256
+        expect(micropost).to be_invalid
+      end
+    end
+
+    context "time is nil" do
+      it "be invalid" do
+        micropost.time = nil
         expect(micropost).to be_invalid
       end
     end
@@ -60,7 +81,7 @@ RSpec.describe Micropost, type: :model do
   describe "dependancy of micropost" do
     context "user deleted" do
       it "destroy micropost" do
-        user.microposts.create!(content: "Lorem Ipsum", user_id: user.id)
+        user.microposts.create!(content: "Lorem Ipsum", user_id: user.id, time: 100, title: "Lorem")
         expect{ user.destroy }.to change{ Micropost.count }.by(-1)
       end
     end
