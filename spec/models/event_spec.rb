@@ -39,11 +39,11 @@ RSpec.describe Event, type: :model do
 
     context "all is nil except for user_id" do
       it "be invalid" do
-        event.update_attributes(start: nil,
-                                end: nil,
-                                title: nil,
-                                body: nil,
-                                user_id: user.id)
+        event.update( start: nil,
+                      end: nil,
+                      title: nil,
+                      body: nil,
+                      user_id: user.id)
         expect(event).to be_invalid
       end
     end

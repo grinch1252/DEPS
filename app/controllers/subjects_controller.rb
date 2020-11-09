@@ -37,7 +37,7 @@ class SubjectsController < ApplicationController
   def update
     define_user
     @subject = @user.subjects.find_by(id: params[:id])
-    if @subject.update_attributes(subject_params)
+    if @subject.update(subject_params)
       flash[:success] = "Subject has been updated."
       redirect_to subjects_path
     else

@@ -50,19 +50,19 @@ RSpec.describe Micropost, type: :model do
       end
     end
 
-    context "time is nil" do
+    context "time is lower than 0" do
       it "be invalid" do
-        micropost.time = nil
+        micropost.time = -5
         expect(micropost).to be_invalid
       end
     end
 
     context "all is nil except for user_id" do
       it "be invalid" do
-        micropost.update_attributes(time: nil,
-                                    title: nil,
-                                    content: nil,
-                                    user_id: user.id)
+        micropost.update( time: nil,
+                          title: nil,
+                          content: nil,
+                          user_id: user.id)
         expect(micropost).to be_invalid
       end
     end

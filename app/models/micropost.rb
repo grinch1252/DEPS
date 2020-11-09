@@ -6,6 +6,7 @@ class Micropost < ApplicationRecord
   validates :has_element, presence: true
   validates :title, length: {maximum: 25}
   validates :content, length: {maximum: 255}
+  validates :time, :numericality => { :greater_than_or_equal_to => 0 }
 
   def like(user)
     likes.create(user_id: user.id)
@@ -22,7 +23,7 @@ class Micropost < ApplicationRecord
   private
 
     def has_element
-      user_id.presence and time.presence and title.presence and content.presence
+      user_id.presence and title.presence and content.presence
     end
 
 end

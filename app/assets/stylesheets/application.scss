@@ -92,85 +92,74 @@ section {
   height: 500px !important;
 }
 
-.calendar-title {
-  color: $colHighlight;
-}
-
 .modal-content {
   background-color: $bgDefault;
-}
-
-.modal-title {
-  text-align: right
-}
-
-.events {
-  list-style: none;
-  padding: 0;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #777;
+  .modal-title {
+    text-align: right
   }
-}
-
-.btn-event {
-  float: right;
-  padding: 5px;
 }
 
 .events-container {
   margin-top: 60px;
+  .btn-event {
+    float: right;
+    padding: 5px;
+  }
+  .events {
+    list-style: none;
+    padding: 0;
+    li {
+      padding: 10px 0;
+      border-top: 1px solid #777;
+    }
+  }
 }
 
 // search result
 
 .result-container {
   margin-top: 30px;
-}
-
-.result {
-  font-size: 30px;
-}
-
-.searchUsers {
-  list-style: none;
-  padding: 0;
-  li {
-    padding: 10px 0px;
-    border-top: 1px solid #777;
+  .result {
+    font-size: 30px;
   }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-  .user-picture {
-    overflow: auto;
-    margin-right: 10px;
-    margin-top: 5px;
+  .searchUsers {
+    list-style: none;
+    padding: 0;
+    li {
+      padding: 10px 0px;
+      border-top: 1px solid #777;
+    }
+    .user {
+      margin-top: 5em;
+      padding-top: 0;
+    }
+    .user-picture {
+      overflow: auto;
+      margin-right: 10px;
+      margin-top: 5px;
+    }
   }
 }
 
 // event#show
+
 .event-show-container {
   padding-top: 20px;
   margin-top: 30px;
   border: 1px solid #666;
   width: 870px;
-}
-
-.event-time {
-  margin-top: 20px;
-  font-weight: normal;
-}
-
-.event-detail {
-  margin-top: 20px;
-  font-weight: normal;
-}
-
-.event-delete-button {
-  float: right;
-  position: relative;
+  .event-time {
+    margin-top: 20px;
+    font-weight: normal;
+  }
+  .event-detail {
+    margin-top: 20px;
+    font-weight: normal;
+  }
+  .event-delete-button {
+    float: right;
+    position: relative;
+  }
 }
 
 // chart
@@ -221,10 +210,14 @@ section {
       color: $colHighlight;
     }
     #followers {
-      border-left: 1px solid #888;
+      border-left: 1px solid #777;
       padding-left: 20px;
     }
   }
+}
+
+.follow_form {
+  margin-top: 10px;
 }
 
 .tab_switch {
@@ -233,10 +226,11 @@ section {
 }
 
 .tab_item {
+  margin-left: 5px;
+  position: relative;
+  bottom: 3px;
   width: 80px;
   height: 50px;
-  border: 1px solid $colDefault;
-  border-radius: 8px;
   background-color: $bgHighlight;
   line-height: 50px;
   font-size: 16px;
@@ -246,7 +240,7 @@ section {
   cursor: pointer;
   float: left;
   text-align: center;
-  font-weight: bold;
+  font-weight: normal;
   transition: all 0.2s ease;
   &:hover {
     background-color: #eee;
@@ -283,6 +277,30 @@ input:checked + .tab_item {
 
 .subjects-container {
   margin-top: 60px;
+  .subjects>li {
+    width: 200px;
+    text-align: center;
+    float: left;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    list-style: none;
+    border: 1px solid #777;
+    .subject-picture {
+      margin-bottom: 20px;
+      margin-top: 4px;
+    }
+    .subject-info {
+      padding: 9px;
+      .buttons {
+        display: flex;
+        position: relative;
+        left: 10px;
+        .subject-btn {
+          margin-left: 4px;
+        }
+      }
+    }
+  }
 }
 
 .create-subject {
@@ -290,35 +308,10 @@ input:checked + .tab_item {
   size: 160px;
   margin: 20px;
 }
-.item {
-  width: 200px;
-  text-align: center;
-}
 
-.subjects>li {
-  float: left;
-  margin-bottom: 30px;
-  margin-left: 30px;
-  list-style: none;
-  border: 1px solid #555;
-}
-
-.subject-picture {
-  margin-bottom: 20px;
-  margin-top: 4px;
-}
-
-.subject-info {
-  padding: 9px;
-
-}
-
-.buttons {
-  display: flex;
-  position: relative;
-  left: 10px;
-  .subject-btn {
-    margin-left: 4px;
+.modal-body {
+  .picture-form {
+    margin: 20px 0;
   }
 }
 
@@ -326,6 +319,12 @@ input:checked + .tab_item {
 
 .subject-show-container {
   margin-top: 60px;
+}
+
+.subject-edit {
+  .picture-form {
+    margin: 20px 0;
+  }
 }
 
 
