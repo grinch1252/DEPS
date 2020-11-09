@@ -25,9 +25,9 @@ RSpec.describe "Microposts", type: :request do
                                                 time: nil,
                                                 content: nil,
                                                 user_id: user.id} }
-    end
+  end
 
-  describe "#create" do
+  describe "#create micropost" do
     context "submit valid values" do
       it "succeed create" do
         log_in_as(user)
@@ -60,7 +60,7 @@ RSpec.describe "Microposts", type: :request do
     end
   end
 
-  describe "#destroy" do
+  describe "#destroy micropost" do
     context "as correct user" do
       it "succeed destroy" do
         log_in_as(user)

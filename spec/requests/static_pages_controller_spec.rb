@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "StaticPagesController", type: :request do
 
-  context "GET #home" do
+  context "get #home" do
     include ApplicationHelper
     before { get root_path }
     it "responds successfully" do

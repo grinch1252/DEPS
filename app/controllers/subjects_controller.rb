@@ -25,8 +25,10 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     @microposts = @user.microposts.where("title LIKE ?", "%#{@subject.name}%").page(params[:page]).per(7)
     @records = @microposts.pluck(:created_at, :time)
-    @today = Date.today
-    @lastmonth_today = @today.prev_day(14)
+    @records.each do |record|
+      record[0] = record[0].strftime("%Y/%m/%d %H:%M")
+    end
+    @records = @records.sort
   end
 
   def edit
