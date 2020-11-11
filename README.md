@@ -1,24 +1,38 @@
-# README
+#概要
+  DEPSは学習記録とスケジュール管理を合わせたタスクマネジメントアプリです。
+  学習記録を投稿することでグラフ上で合計学習時間の確認を出来たり、カレンダー上にスケジュールを立てることが出来ます。
+  ※トップページ右下のLogin as Guestからログインをお願いします。
+#バージョン
+  Ruby 2.7.1
+  Rails 6.0.1
+#機能一覧
+  ##投稿機能関連
+    - 一覧表示機能
+    - 削除機能
+    - 良いね機能
+    - ページネーション機能
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  ##タスク管理/スケジュール管理機能関連
+    - 一覧表示機能
+    - 詳細表示機能
+    - カレンダー機能
+    - グラフ機能
 
-Things you may want to cover:
+  ##ユーザー関連
+    - 登録機能
+    - ログイン/ログアウト機能
+    - メールアドレス認証機能
+    - フォロー機能
 
-* Ruby version
+#使用技術
+  - Ruby on Rails
+  - Haml
+  - SCSS
+  - S3
+  - RSpec + Capybara + FactoryBot
+  - chartkick
+  - fullcalendar
+  
 
-* System dependencies
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
