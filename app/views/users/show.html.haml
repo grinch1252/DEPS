@@ -55,9 +55,10 @@
                   = link_to "Year", graph_path(@user, period: "year"), class: "dropdown-item"
             = line_chart @chart, discrete: true, colors: ["#3eaeca"]
         .tab_content#subject_content
-          - if @user.subjects.any?
-            .page-control= paginate @subjects
-            %ul.subjects
-              = render @subjects
-          - else
-            %h1.no-subject No subject.
+          .container.subjects-container
+            - if @user.subjects.any?
+              .page-control= paginate @subjects
+              %ul.subjects
+                = render @subjects
+            - else
+              %h1.no-subject No subject.
