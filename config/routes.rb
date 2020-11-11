@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :microposts, only:[:create, :destroy, :edit, :update]
   resources :account_activations, only:[:edit]
   resources :password_resets, only:[:new, :create, :edit, :update]
-  resources :events, only:[:index, :create, :edit, :update, :destroy]
+  resources :events, defaults: { format: 'html' }
   resources :subjects
   resources :relationships, only: [:create, :destroy]
   resources :likes, only:[:create, :destroy]
