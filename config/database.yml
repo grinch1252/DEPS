@@ -7,7 +7,7 @@ default: &default
   username: grinch1225
   password: 55452yxr
   socket: /tmp/mysql.sock
-  host: localhost
+  host: deps-mysql.cycmh4wlvook.ap-northeast-1.rds.amazonaws.com
 
 development:
   <<: *default
@@ -20,5 +20,3 @@ test:
 production:
   <<: *default
   database: DEPS_production
-  username: root
-  password:
