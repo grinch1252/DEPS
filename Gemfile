@@ -52,7 +52,7 @@ end
 
 
 group :production, :staging do
-  gem 'pg', '0.20.0'
+  gem 'pg'
   gem 'unicorn'
   gem 'fog-aws'
 end
