@@ -1,16 +1,15 @@
 class SubjectsController < ApplicationController
+  before_action :difine_user, only: [:index, :create, :show, :edit, :update]
   before_action :logged_in_user, only: [:index, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:destroy]
   before_action :guest_user_validation, only: [:create, :destroy]
 
   def index
-    define_user
     @subjects = @user.subjects.page(params[:page]).per(8)
     @subject = Subject.new
   end
 
   def create
-    define_user
     @subject = @user.subjects.build(subject_params)
     if @subject.save
       redirect_to subjects_path
@@ -21,7 +20,6 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    define_user
     @subject = Subject.find(params[:id])
     @microposts = @user.microposts.where("title LIKE ?", "%#{@subject.name}%").page(params[:page]).per(7)
     @records = @microposts.pluck(:created_at, :time)
@@ -32,12 +30,10 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    define_user
     @subject = @user.subjects.find_by(id: params[:id])
   end
 
   def update
-    define_user
     @subject = @user.subjects.find_by(id: params[:id])
     if @subject.update(subject_params)
       flash[:success] = "Subject has been updated."

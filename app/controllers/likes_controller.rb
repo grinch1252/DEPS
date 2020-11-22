@@ -1,8 +1,8 @@
 class LikesController < ApplicationController
+  before_action :define_user, only: [:create, :destroy]
   before_action :logged_in_user
 
   def create
-    define_user
     @micropost = Micropost.find(params[:micropost_id])
     @like = @micropost.like(@user)
     @like_count = Like.where(micropost_id: params[:micropost_id]).count
@@ -13,7 +13,6 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    define_user
     @micropost = Like.find(params[:id]).micropost
     @micropost.unlike(@user)
     @like_count = Like.where(micropost_id: params[:micropost_id]).count

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :user_find, only: [:show, :edit, :update, :following, :followers]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user, only: [:edit, :update]
   before_action :guest_user_validation, only: [:update]
@@ -24,20 +25,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @micropost = current_user.microposts.build
     @microposts = @user.microposts.page(params[:page]).per(7)
-    @period = params[:period]
     @chart = @user.microposts_period(@period)
     @subjects = @user.subjects.page(params[:page]).per(8)
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Profile has been updated."
       redirect_to @user
@@ -49,14 +46,12 @@ class UsersController < ApplicationController
 
   def following
     @title = "Following"
-    @user  = User.find(params[:id])
     @users = @user.following.page(params[:page]).per(7)
     render "show_follow"
   end
 
   def followers
     @title = "Followers"
-    @user  = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(7)
     render "show_follow"
   end
@@ -93,5 +88,9 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def user_find
+      @user = User.find(params[:id])
     end
 end

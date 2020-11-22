@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
+  before_action :define_user, only: [:index, :create]
   before_action :logged_in_user, only: [:index, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:destroy]
   before_action :guest_user_validation, only: [:create, :destroy]
 
   def index
-    define_user
     @events = @user.events.page(params[:page]).per(5)
     @event = Event.new
   end
@@ -14,7 +14,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    define_user
     @event = @user.events.build(event_params) if logged_in?
     @events = @user.events.page(params[:page]).per(5)
     if @event.save

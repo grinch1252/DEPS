@@ -38,7 +38,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'capybara'
   gem 'webdrivers'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '5.2.0'
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
 end
