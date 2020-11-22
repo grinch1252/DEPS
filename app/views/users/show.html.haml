@@ -45,14 +45,6 @@
                   (
                   %em.figure-sum= to_hour
                   hour)
-              %span.dropdown.col-sm.period-button
-                %button#dropdownMenuButton.btn.btn-info.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-                  = @user.microposts_period(@period).keys.first
-                  \- #{@user.microposts_period(@period).keys.last}
-                .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
-                  = link_to "Week", graph_path(@user, period: "week"), class: "dropdown-item"
-                  = link_to "Month", graph_path(@user, period: "month"), class: "dropdown-item"
-                  = link_to "Year", graph_path(@user, period: "year"), class: "dropdown-item"
             = line_chart @chart, discrete: true, colors: ["#3eaeca"]
         .tab_content#subject_content
           .container.subjects-container
