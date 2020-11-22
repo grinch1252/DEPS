@@ -1,22 +1,16 @@
-
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: DEPS
-  username: grinch1225
-  password: 55452yxr
-  socket: /tmp/mysql.sock
-  host: deps-mysql.cycmh4wlvook.ap-northeast-1.rds.amazonaws.com
+  timeout: 5000
 
 development:
   <<: *default
-  database: DEPS_development
+  database: db/development.sqlite3
 
 test:
   <<: *default
-  database: DEPS_test
+  database: db/test.sqlite3
 
 production:
   <<: *default
-  database: DEPS_production
+  database: db/production.sqlite3
