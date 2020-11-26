@@ -29,10 +29,12 @@
   - Ruby on Rails
   - Haml
   - SCSS
-  - S3
+  - AWS S3
   - RSpec + Capybara + FactoryBot
   - chartkick
   - fullcalendar
+  - Rubocop
+  - kaminari
 
 # 使用方法
   ## Home
