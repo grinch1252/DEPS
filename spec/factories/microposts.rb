@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :microposts, class: Micropost do
+  factory :microposts, :class => Micropost do
     trait :post_1 do
       time { 240 }
       title { "Sed ut" }
@@ -13,7 +13,7 @@ FactoryBot.define do
       title { "sit, amet" }
       content { "sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam" }
       user_id { 1 }
-      created_at { 1.years.ago }
+      created_at { 1.year.ago }
     end
 
     trait :post_3 do

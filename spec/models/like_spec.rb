@@ -1,12 +1,12 @@
 require "rails_helper"
 
-RSpec.describe Like, type: :model do
+RSpec.describe Like, :type => :model do
 
   let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
-  let!(:micropost) { user.microposts.create( time: 240,
-                                            title: "Test",
-                                            content: "Test Post") }
+  let!(:micropost) { user.microposts.create( :time => 240,
+                                            :title => "Test",
+                                            :content => "Test Post") }
   let!(:like) { micropost.like(other_user) }
 
   context "submit valid values" do

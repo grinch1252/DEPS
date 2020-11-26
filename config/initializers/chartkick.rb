@@ -1,4 +1,4 @@
 Chartkick.options = {
-  curve: false,
-  messages: {empty: "No data"}
+  :curve => false,
+  :messages => { :empty => "No data" }
 }

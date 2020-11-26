@@ -1,6 +1,6 @@
 FactoryBot.define do
 
-  factory :user, class: User do
+  factory :user, :class => User do
     name { "TestUser" }
     email { "testuser@example.com" }
     password { "password" }
@@ -8,7 +8,7 @@ FactoryBot.define do
     activated { true }
   end
 
-  factory :other_user, class: User do
+  factory :other_user, :class => User do
     name { "OtherUser" }
     email { "otheruser@example.com" }
     password { "foobar" }
@@ -16,7 +16,7 @@ FactoryBot.define do
     activated { true }
   end
 
-  factory :third, class: User do
+  factory :third, :class => User do
     name { "ThirdUser" }
     email { "thirduser@example.com" }
     password { "password3" }
@@ -24,7 +24,7 @@ FactoryBot.define do
     activated { true }
   end
 
-  factory :no_activated_user, class: User do
+  factory :no_activated_user, :class => User do
     name { "NoActivatedUser" }
     email { "NoActuser@example.com" }
     password { "bazfor" }

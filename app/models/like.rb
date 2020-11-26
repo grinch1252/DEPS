@@ -1,7 +1,7 @@
 class Like < ApplicationRecord
   belongs_to :user
   belongs_to :micropost
-  validates :has_element, presence: true
+  validates :has_element, :presence => true
 
   private
 

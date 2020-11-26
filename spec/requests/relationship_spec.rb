@@ -1,6 +1,6 @@
 require("rails_helper")
 
-RSpec.describe Relationship, type: :request do
+RSpec.describe Relationship, :type => :request do
 
   let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
@@ -19,7 +19,7 @@ RSpec.describe Relationship, type: :request do
       it "succeed create" do
         log_in_as(user)
         expect do
-          post relationships_path, xhr: true, params: { followed_id: other_user.id }
+          post relationships_path, :xhr => true, :params => { :followed_id => other_user.id }
         end.to change(user.following, :count).by(1)
       end
     end
@@ -30,18 +30,18 @@ RSpec.describe Relationship, type: :request do
       it "succeed cestroy" do
         log_in_as(user)
         user.follow(other_user)
-        relationship = user.active_relationships.find_by(followed_id: other_user.id)
+        relationship = user.active_relationships.find_by(:followed_id => other_user.id)
         expect do
-          delete relationship_path(relationship), xhr: true
+          delete relationship_path(relationship), :xhr => true
         end.to change(user.following, :count).by(-1)
       end
     end
 
     context "before login" do
       it "fail to destroy" do
-        relationship = Relationship.new(  id: 100,
-                                          follower_id: user.id,
-                                          followed_id: other_user.id)
+        relationship = Relationship.new(  :id => 100,
+                                          :follower_id => user.id,
+                                          :followed_id => other_user.id)
         expect do
           delete relationship_path(relationship)
         end.to change(Relationship, :count).by(0)

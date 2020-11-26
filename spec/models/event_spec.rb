@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Event, type: :model do
+RSpec.describe Event, :type => :model do
 
   let!(:user) { create(:user) }
-  let!(:event) { user.events.build( start:"2020-09-27T00:00:00+09:00",
-                                    end:"2020-11-08T00:00:00+09:00",
-                                    title: "Test",
-                                    body: "Test Event",
-                                    user_id: user.id) }
+  let!(:event) { user.events.build( :start => "2020-09-27T00:00:00+09:00",
+                                    :end => "2020-11-08T00:00:00+09:00",
+                                    :title => "Test",
+                                    :body => "Test Event",
+                                    :user_id => user.id) }
 
   context "submit valid values" do
     it "be valid" do
@@ -39,11 +39,11 @@ RSpec.describe Event, type: :model do
 
     context "all is nil except for user_id" do
       it "be invalid" do
-        event.update( start: nil,
-                      end: nil,
-                      title: nil,
-                      body: nil,
-                      user_id: user.id)
+        event.update( :start => nil,
+                      :end => nil,
+                      :title => nil,
+                      :body => nil,
+                      :user_id => user.id)
         expect(event).to be_invalid
       end
     end
@@ -51,10 +51,10 @@ RSpec.describe Event, type: :model do
 
   describe "event order" do
     it "should be most recent first" do
-      create(:events, :event_1, start: Time.zone.now.since(10.minutes), user_id: user.id)
-      create(:events, :event_2, start: Time.zone.now.since(30.minutes), user_id: user.id)
-      create(:events, :event_3, start: Time.zone.now.since(3.years), user_id: user.id)
-      event_4 = create(:events, :event_4, start: Time.zone.now, user_id: user.id)
+      create(:events, :event_1, :start => Time.zone.now.since(10.minutes), :user_id => user.id)
+      create(:events, :event_2, :start => Time.zone.now.since(30.minutes), :user_id => user.id)
+      create(:events, :event_3, :start => Time.zone.now.since(3.years), :user_id => user.id)
+      event_4 = create(:events, :event_4, :start => Time.zone.now, :user_id => user.id)
       expect(event_4).to eq Event.first
     end
   end
@@ -62,11 +62,11 @@ RSpec.describe Event, type: :model do
   describe "dependancy of event" do
     context "user deleted" do
       it "destroy event" do
-        user.events.create!(title: "Lorem",
-                            body: "Lorem Ipsum",
-                            start: Time.zone.now,
-                            user_id: user.id)
-        expect{ user.destroy }.to change{ Event.count }.by(-1)
+        user.events.create!(:title => "Lorem",
+                            :body => "Lorem Ipsum",
+                            :start => Time.zone.now,
+                            :user_id => user.id)
+        expect { user.destroy }.to change { Event.count }.by(-1)
       end
     end
   end

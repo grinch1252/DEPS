@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "StaticPagesController", type: :request do
+RSpec.describe "StaticPagesController", :type => :request do
 
   context "get #home" do
     include ApplicationHelper

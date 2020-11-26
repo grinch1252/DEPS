@@ -1,30 +1,30 @@
 require "rails_helper"
 
-RSpec.describe "Events", type: :request do
+RSpec.describe "Events", :type => :request do
 
   let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
-  let!(:event) { user.events.create(  title: "test",
-                                      start: Time.zone.now,
-                                      body: "This is test event",
-                                      user_id: user.id) }
-  let!(:event2) { other_user.events.create( title: "test2",
-                                            start: Time.zone.now,
-                                            body: "This is second event",
-                                            user_id: other_user.id) }
+  let!(:event) { user.events.create(  :title => "test",
+                                      :start => Time.zone.now,
+                                      :body => "This is test event",
+                                      :user_id => user.id) }
+  let!(:event2) { other_user.events.create( :title => "test2",
+                                            :start => Time.zone.now,
+                                            :body => "This is second event",
+                                            :user_id => other_user.id) }
 
   def valid_event
-    post events_path, params: { event: {title: "test",
-                                        start: Time.zone.now,
-                                        body: "test",
-                                        user_id: user.id} }
+    post events_path, :params => { :event => { :title => "test",
+                                               :start => Time.zone.now,
+                                               :body => "test",
+                                               :user_id => user.id } }
   end
 
   def invalid_event
-    post events_path, params: { event: {title: nil,
-                                        start: nil,
-                                        body: nil,
-                                        user_id: user.id} }
+    post events_path, :params => { :event => { :title => nil,
+                                               :start => nil,
+                                               :body => nil,
+                                               :user_id => user.id } }
   end
 
   describe "#create" do

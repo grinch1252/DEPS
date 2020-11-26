@@ -1,12 +1,12 @@
 require "rails_helper"
 
-RSpec.describe Like, type: :request do
+RSpec.describe Like, :type => :request do
 
   let(:user) { create(:user) }
   let(:other_user) { create(:other_user) }
-  let(:micropost) { user.microposts.create( time: 240,
-                                            title: "Test",
-                                            content: "Test Post") }
+  let(:micropost) { user.microposts.create( :time => 240,
+                                            :title => "Test",
+                                            :content => "Test Post") }
 
   describe "#create" do
     context "before login" do
@@ -21,7 +21,7 @@ RSpec.describe Like, type: :request do
       it "succeed create" do
         log_in_as(other_user)
         expect do
-          post likes_path, params: { micropost_id: micropost.id }
+          post likes_path, :params => { :micropost_id => micropost.id }
         end.to change(Like, :count).by(1)
       end
     end

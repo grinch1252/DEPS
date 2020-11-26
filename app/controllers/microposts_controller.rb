@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
-  before_action :define_user, only: [:create, :destroy]
-  before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
-  before_action :correct_user, only: [:destroy]
+  before_action :define_user, :only => [:create, :destroy]
+  before_action :logged_in_user, :only => [:create, :edit, :update, :destroy]
+  before_action :correct_user, :only => [:destroy]
 
   def create
     @micropost = @user.microposts.build(micropost_params) if logged_in?
@@ -32,7 +32,7 @@ class MicropostsController < ApplicationController
     end
 
     def correct_user
-      @micropost = current_user.microposts.find_by(id: params[:id])
+      @micropost = current_user.microposts.find_by(:id => params[:id])
       redirect_to root_url if @micropost.nil?
     end
 

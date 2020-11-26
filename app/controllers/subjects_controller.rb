@@ -1,8 +1,8 @@
 class SubjectsController < ApplicationController
-  before_action :difine_user, only: [:index, :create, :show, :edit, :update]
-  before_action :logged_in_user, only: [:index, :create, :edit, :update, :destroy]
-  before_action :correct_user, only: [:destroy]
-  before_action :guest_user_validation, only: [:create, :destroy]
+  before_action :difine_user, :only => [:index, :create, :show, :edit, :update]
+  before_action :logged_in_user, :only => [:index, :create, :edit, :update, :destroy]
+  before_action :correct_user, :only => [:destroy]
+  before_action :guest_user_validation, :only => [:create, :destroy]
 
   def index
     @subjects = @user.subjects.page(params[:page]).per(8)
@@ -30,11 +30,11 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    @subject = @user.subjects.find_by(id: params[:id])
+    @subject = @user.subjects.find_by(:id => params[:id])
   end
 
   def update
-    @subject = @user.subjects.find_by(id: params[:id])
+    @subject = @user.subjects.find_by(:id => params[:id])
     if @subject.update(subject_params)
       flash[:success] = "Subject has been updated."
       redirect_to subjects_path
@@ -56,7 +56,7 @@ class SubjectsController < ApplicationController
     end
 
     def correct_user
-      @subject = current_user.subjects.find_by(id: params[:id])
+      @subject = current_user.subjects.find_by(:id => params[:id])
       redirect_to root_url if @subject.nil?
     end
 

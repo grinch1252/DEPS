@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Users", type: :request do
+RSpec.describe "Users", :type => :request do
 
   let!(:user) { create(:user) }
   let!(:no_activated_user) { create(:no_activated_user) }
@@ -11,12 +11,12 @@ RSpec.describe "Users", type: :request do
         get signup_path
         expect(response).to have_http_status(:success)
         expect {
-          post signup_path, params: {
-            user: {
-              name: "testuser",
-              email: "example@valid.com",
-              password: "testuser",
-              password_confirmation: "testuser"
+          post signup_path, :params => {
+            :user => {
+              :name => "testuser",
+              :email => "example@valid.com",
+              :password => "testuser",
+              :password_confirmation => "testuser"
             }
           }
         }.to change(User, :count).by(1)
@@ -28,12 +28,12 @@ RSpec.describe "Users", type: :request do
         get signup_path
         expect(response).to have_http_status(:success)
         expect {
-          post signup_path, params: {
-            user: {
-              name: "",
-              email: "example@in-va-lid.com..",
-              password: "test",
-              password_confirmation: "foo"
+          post signup_path, :params => {
+            :user => {
+              :name => "",
+              :email => "example@in-va-lid.com..",
+              :password => "test",
+              :password_confirmation => "foo"
             }
           }
         }.not_to change(User, :count)

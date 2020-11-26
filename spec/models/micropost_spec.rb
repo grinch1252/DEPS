@@ -1,12 +1,12 @@
 require "rails_helper"
 
-RSpec.describe Micropost, type: :model do
+RSpec.describe Micropost, :type => :model do
 
   let(:user) { create(:user) }
-  let(:micropost) { user.microposts.build(time: 240,
-                                          title: "Test",
-                                          content: "Test Post",
-                                          user_id: user.id) }
+  let(:micropost) { user.microposts.build(:time => 240,
+                                          :title => "Test",
+                                          :content => "Test Post",
+                                          :user_id => user.id) }
 
   context "submit valid values" do
     it "be valid" do
@@ -52,10 +52,10 @@ RSpec.describe Micropost, type: :model do
 
     context "all is nil except for user_id" do
       it "be invalid" do
-        micropost.update( time: nil,
-                          title: nil,
-                          content: nil,
-                          user_id: user.id)
+        micropost.update( :time => nil,
+                          :title => nil,
+                          :content => nil,
+                          :user_id => user.id)
         expect(micropost).to be_invalid
       end
     end
@@ -63,10 +63,10 @@ RSpec.describe Micropost, type: :model do
 
   describe "micropost order" do
     it "should be most recent first" do
-      create(:microposts, :post_1, created_at: 10.minutes.ago, user_id: user.id)
-      create(:microposts, :post_2, created_at: 3.years.ago, user_id: user.id)
-      create(:microposts, :post_3, created_at: 2.hours.ago, user_id: user.id)
-      post_4 = create(:microposts, :post_4, created_at: Time.zone.now, user_id: user.id)
+      create(:microposts, :post_1, :created_at => 10.minutes.ago, :user_id => user.id)
+      create(:microposts, :post_2, :created_at => 3.years.ago, :user_id => user.id)
+      create(:microposts, :post_3, :created_at => 2.hours.ago, :user_id => user.id)
+      post_4 = create(:microposts, :post_4, :created_at => Time.zone.now, :user_id => user.id)
       expect(post_4).to eq Micropost.first
     end
   end
@@ -74,8 +74,8 @@ RSpec.describe Micropost, type: :model do
   describe "dependancy of micropost" do
     context "user deleted" do
       it "destroy micropost" do
-        user.microposts.create!(content: "Lorem Ipsum", user_id: user.id, time: 100, title: "Lorem")
-        expect{ user.destroy }.to change{ Micropost.count }.by(-1)
+        user.microposts.create!(:content => "Lorem Ipsum", :user_id => user.id, :time => 100, :title => "Lorem")
+        expect { user.destroy }.to change { Micropost.count }.by(-1)
       end
     end
   end

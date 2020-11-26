@@ -2,7 +2,7 @@ require "capybara/rspec"
 
 RSpec.configure do |config|
   # config.include Rails.application.routes.url_helpers
-  config.before(:each, type: :system) do
+  config.before(:each, :type => :system) do
     config.include Capybara::DSL
     config.include FactoryBot::Syntax::Methods
     driven_by :selenium_chrome_headless

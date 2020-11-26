@@ -1,11 +1,11 @@
 require "rails_helper"
 
-RSpec.describe Relationship, type: :model do
+RSpec.describe Relationship, :type => :model do
 
-  let(:user) { create(:user)}
+  let(:user) { create(:user) }
   let(:other_user) { create(:other_user) }
-  let(:relationship) { Relationship.new(follower_id: user.id,
-                                        followed_id: other_user.id) }
+  let(:relationship) { Relationship.new(:follower_id => user.id,
+                                        :followed_id => other_user.id) }
 
   context "submit valid values" do
     it "be valid" do

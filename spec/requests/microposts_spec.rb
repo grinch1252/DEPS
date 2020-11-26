@@ -1,30 +1,30 @@
 require "rails_helper"
 
-RSpec.describe "Microposts", type: :request do
+RSpec.describe "Microposts", :type => :request do
 
   let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
-  let!(:micropost) { user.microposts.create(  title: "test",
-                                              time: 30,
-                                              content: "This is test post",
-                                              user_id: user.id) }
-  let!(:micropost2) { other_user.microposts.create( title: "test2",
-                                                    time: 30,
-                                                    content: "This is second post",
-                                                    user_id: other_user.id) }
+  let!(:micropost) { user.microposts.create(  :title => "test",
+                                              :time => 30,
+                                              :content => "This is test post",
+                                              :user_id => user.id) }
+  let!(:micropost2) { other_user.microposts.create( :title => "test2",
+                                                    :time => 30,
+                                                    :content => "This is second post",
+                                                    :user_id => other_user.id) }
 
   def valid_post
-    post microposts_path, params: { micropost: {title: "test",
-                                                time: 30,
-                                                content: "test",
-                                                user_id: user.id} }
+    post microposts_path, :params => { :micropost => { :title => "test",
+                                                       :time => 30,
+                                                       :content => "test",
+                                                       :user_id => user.id } }
   end
 
   def invalid_post
-    post microposts_path, params: { micropost: {title: nil,
-                                                time: nil,
-                                                content: nil,
-                                                user_id: user.id} }
+    post microposts_path, :params => { :micropost => { :title => nil,
+                                                       :time => nil,
+                                                       :content => nil,
+                                                       :user_id => user.id } }
   end
 
   describe "#create micropost" do

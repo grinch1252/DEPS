@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :user_find, only: [:show, :edit, :update, :following, :followers]
-  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user, only: [:edit, :update]
-  before_action :guest_user_validation, only: [:update]
+  before_action :user_find, :only => [:show, :edit, :update, :following, :followers]
+  before_action :logged_in_user, :only => [:index, :show, :edit, :update, :destroy, :following, :followers]
+  before_action :correct_user, :only => [:edit, :update]
+  before_action :guest_user_validation, :only => [:update]
 
   def index
     @users = User.where(activeted :true).page(params[:page]).per(7)

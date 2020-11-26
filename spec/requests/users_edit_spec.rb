@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "UsersEdit", type: :request do
+RSpec.describe "UsersEdit", :type => :request do
 
   let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }

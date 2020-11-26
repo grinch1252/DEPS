@@ -9,9 +9,9 @@ module TestHelper
   end
 
   def log_in_as(remember_me = 0)
-    post login_path, params: { session: { email: user.email,
-                                          password: user.password,
-                                          remember_me: remember_me } }
+    post login_path, :params => { :session => { :email => user.email,
+                                                :password => user.password,
+                                                :remember_me => remember_me } }
   end
 
   def remember(user)

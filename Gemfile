@@ -16,7 +16,7 @@ gem 'haml-rails', '~> 2.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '>= 1.4.2', :require => false
 gem 'faker',          '1.9.3'
 gem 'will_paginate',           '3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
@@ -32,7 +32,7 @@ gem 'dotenv-rails'
 gem 'pg'
 
 group :development, :test do
-  gem 'byebug',  '9.0.6', platform: :mri
+  gem 'byebug',  '9.0.6', :platform => :mri
   gem 'rspec-rails', '~> 3.8'
   gem 'spring-commands-rspec'
   gem 'capybara'

@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :events, class: Event do
+  factory :events, :class => Event do
     trait :event_1 do
       title { "Sed ut" }
       body { "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium" }
@@ -13,7 +13,7 @@ FactoryBot.define do
       body { "sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam" }
       user_id { 1 }
       start { Time.zone.now.since(30.minutes) }
-      created_at { 1.years.ago }
+      created_at { 1.year.ago }
     end
 
     trait :event_3 do

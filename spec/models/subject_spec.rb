@@ -1,11 +1,11 @@
 require "rails_helper"
 
-RSpec.describe Subject, type: :model do
+RSpec.describe Subject, :type => :model do
 
   let(:user) { create(:user) }
-  let(:subject) { user.subjects.build(name: "Test",
-                                      total_time: 0,
-                                      user_id: user.id)}
+  let(:subject) { user.subjects.build(:name => "Test",
+                                      :total_time => 0,
+                                      :user_id => user.id)}
 
   context "submit valid values" do
     it "be valid" do

@@ -1,18 +1,18 @@
 module UsersHelper
 
-  def picture_for_user_info(user, options = { size: 50 })
+  def picture_for_user_info(user, options = { :size => 50 })
     if user.picture?
       size = options[:size]
       picture_url = user.picture.url
-      image_tag(user.picture_url, class: "picture info-picture")
+      image_tag(user.picture_url, :class => "picture info-picture")
     end
   end
 
-  def picture_for_micropost(user, options = { size: 50 })
+  def picture_for_micropost(user, options = { :size => 50 })
     if user.picture?
       size = options[:size]
       picture_url = user.picture.url
-      image_tag(user.picture_url, class: "picture micropost-picture")
+      image_tag(user.picture_url, :class => "picture micropost-picture")
     end
   end
 

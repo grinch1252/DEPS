@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Login", type: :system do
+RSpec.describe "Login", :type => :system do
 
   let!(:user) { create(:user) }
 
@@ -9,8 +9,8 @@ RSpec.describe "Login", type: :system do
       it "success login" do
         visit login_path
         expect(page).to have_selector ".input-container"
-        fill_in "email-address", with: user.email
-        fill_in "password", with: user.password
+        fill_in "email-address", :with => user.email
+        fill_in "password", :with => user.password
         click_button "Login"
         expect(current_path).to eq user_path(user)
       end
@@ -20,8 +20,8 @@ RSpec.describe "Login", type: :system do
       it "fail to login" do
         visit login_path
         expect(page).to have_selector ".input-container"
-        fill_in "email-address", with: ""
-        fill_in  "password", with: ""
+        fill_in "email-address", :with => ""
+        fill_in  "password", :with => ""
         click_button "Login"
         expect(current_path).to eq login_path
         expect(page).to have_selector ".input-container"
@@ -31,8 +31,8 @@ RSpec.describe "Login", type: :system do
       it "has error message" do
         visit login_path
         expect(page).to have_selector ".input-container"
-        fill_in "email-address", with: ""
-        fill_in "password", with: ""
+        fill_in "email-address", :with => ""
+        fill_in "password", :with => ""
         click_button "Login"
         expect(current_path).to eq login_path
         expect(page).to have_selector ".input-container"
@@ -47,8 +47,8 @@ RSpec.describe "Login", type: :system do
     it "succeed logout" do
       visit login_path
       expect(page).to have_selector ".input-container"
-      fill_in "email-address", with: user.email
-      fill_in "password", with: user.password
+      fill_in "email-address", :with => user.email
+      fill_in "password", :with => user.password
       click_button "Login"
       expect(current_path).to eq user_path(user)
       find(".header-toggle").click
