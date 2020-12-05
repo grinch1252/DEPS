@@ -1,24 +1,21 @@
-version: '3'
+version: "3"
 services:
   db:
     image: postgres
-    ports:
-      - '5432:5432'
     volumes:
-      - postgresql-data:/var/lib/postgresql/data
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
-    tty: true
-    stdin_open: true
-    depends_on:
-      - db
-    ports:
-      - "3000:3000"
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/DEPS
-volumes:
-  postgresql-data:
-    driver: local
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  chrome:
+    image: selenium/standalone-chrome:3.141.59-dubnium
+    ports:
+      - 4444:4444
